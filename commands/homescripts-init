@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#to setup aliases
+for aliasFile in $(ls ~/homescripts/aliases)
+do
+    source ~/homescripts/aliases/$aliasFile
+done
+
+#to setup environment variables
+source ~/homescripts/setup_environment_variables/setup-path-variable
