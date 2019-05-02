@@ -1,0 +1,7 @@
+#!/bin/bash
+IFS=$'\n'
+for appName in $(ls /Applications)
+do
+  echo 'Killing '$appName  
+  osascript -e 'quit app "'$appName'"'
+done
