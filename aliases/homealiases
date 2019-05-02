@@ -1,13 +1,18 @@
 #!/bin/bash
 
 #basic navigation
+
 alias desk="cd ~/Desktop"
 alias downloads="cd ~/Downloads"
 alias home="cd ~"
 
-alias homescripts_cd_scripts="cd ~/homescripts"
-alias homescripts_cd_aliases="cd ~/homescripts/aliases"
-alias homescripts_cd_commands="cd ~/homescripts/commands"
+#re stands for reload.
+alias re="source ~/homescripts/commands/homescripts-init"
 
-alias homescripts_vim_aliases="vim ~/homescripts/aliases/homealiases"
+#homescripts
+alias scripts="cd ~/homescripts"
+alias aliases="cd ~/homescripts/aliases"
+alias commands="cd ~/homescripts/commands"
+
+alias aliasesvim="vim ~/homescripts/aliases/homealiases"
 
