@@ -2,6 +2,6 @@
 IFS=$'\n'
 for appName in $(ls /Applications)
 do
-  echo 'Killing '$appName  
+  echo 'Killing '$appName
   osascript -e 'quit app "'$appName'"'
 done

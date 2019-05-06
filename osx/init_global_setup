@@ -1,0 +1,4 @@
+#/bin/bash
+./init_global_environment_variables
+./init_global_aliases
+./init_global_bin

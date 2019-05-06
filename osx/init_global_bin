@@ -1,0 +1,5 @@
+# copy over bin directory
+cp -r $(pwd)/bin/. ~/bin
+
+# make bin scripts executable
+chmod -R +x ~/bin

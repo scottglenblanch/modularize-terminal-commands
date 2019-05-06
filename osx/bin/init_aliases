@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#to setup environment variables
+source ~/homescripts/setup_environment_variables/setup-path-variable

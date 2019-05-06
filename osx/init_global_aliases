@@ -1,0 +1,3 @@
+# copy over aliases directory
+mkdir ~/aliases
+cp -r $(pwd)/aliases/* ~/aliases
