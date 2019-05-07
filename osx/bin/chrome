@@ -1,2 +1,8 @@
 #!/bin/bash
-open -a "Google Chrome" "$1"
+if [ "$1" != "" ]
+then
+  site=$1
+else
+  site='https://www.google.com'
+fi
+open -a "Google Chrome" "$site"
