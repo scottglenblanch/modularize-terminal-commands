@@ -1,2 +1,2 @@
 #!/bin/bash
-open "https://www.google.com"
+open -a "Google Chrome" "$1"

@@ -1,8 +1,6 @@
 #!/bin/bash
-
-#to setup environment variables
 for aliasFile in $(ls ~/aliases)
 do
-    echo 'alias file ~/aliases/'$aliasFile
-    source ~/aliases/$aliasFile
+  echo 'alias file ~/aliases/'$aliasFile
+  source ~/aliases/$aliasFile
 done
