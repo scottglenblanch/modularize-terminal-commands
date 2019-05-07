@@ -1,4 +1,4 @@
 #!/bin/bash
 #to setup aliases
 source ~/bin/initAliases
-source  ~/bin/initEnvironmentVariables
+source ~/bin/initEnvironmentVariables

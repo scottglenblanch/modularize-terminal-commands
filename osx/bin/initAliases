@@ -3,7 +3,6 @@
 #to setup environment variables
 for aliasFile in $(ls ~/aliases)
 do
-    cd ~/aliases/
-    echo 'alias file '$aliasFile
-    source $aliasFile
+    echo 'alias file ~/aliases/'$aliasFile
+    source ~/aliases/$aliasFile
 done
