@@ -5,4 +5,4 @@ then
 else
   site='https://www.google.com'
 fi
-open -na "Google Chrome" "$site"
+open -na "Google Chrome" --args --incognito "$site"
