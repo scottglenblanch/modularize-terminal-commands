@@ -1,13 +1,9 @@
 #!/bin/bash
 #basic navigation
 alias home='cd ~'
-alias homebin="cd ~/bin"
+alias homebin="cd $HOME_BIN"
+alias homealiases="cd $HOME_ALIASES"
 alias desk='cd ~/Desktop'
 alias downloads='cd ~/Downloads'
 alias library='cd ~/Library'
 alias re='exec "$SHELL"'
-# below is for development of this project
-alias init="source /Users/sblanch/mybashscripts/osx/initGlobalSetup"
-alias mybashscripts="cd ~/mybashscripts"
-alias osx="mybashscripts; osx"
-alias osxbin="osx; cd bin"
