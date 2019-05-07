@@ -1,5 +1,6 @@
 #!/bin/bash
 for scriptName in $(ls ~/envvars)
 do
+  echo '$scriptName'
   source ~/envvars/$scriptName
 done

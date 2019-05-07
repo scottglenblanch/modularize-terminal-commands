@@ -1,4 +1,7 @@
 #!/bin/bash
+# uncomment below if you want to wipe out the created folders
+# Warning: This will wipe out these folder, so if you want
+# to keep your current folder don't uncomment commands below
 rm -rf ~/envvars
 rm -rf ~/aliases
 rm -rf ~/bin

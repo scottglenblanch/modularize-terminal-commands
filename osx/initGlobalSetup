@@ -1,6 +1,6 @@
 #!/bin/bash
 curDir=$(pwd)
-echo $curDir
+
 source $curDir/reset
 source $curDir/initGlobalEnvironmentVariables
 source $curDir/initGlobalAliases

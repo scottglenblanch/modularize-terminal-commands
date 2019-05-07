@@ -1,6 +1,5 @@
 #!/bin/bash
 for aliasFile in $(ls ~/aliases)
 do
-  echo 'alias file ~/aliases/'$aliasFile
   source ~/aliases/$aliasFile
 done
