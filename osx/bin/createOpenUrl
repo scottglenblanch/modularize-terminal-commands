@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ "$1" == "" ] || [ "$2" == "" ];
+then
+  echo '1st parameter is command, 2nd parameter is website url to open'
+  exit 1
+fi
+
+nameOfFile=$1
+echo '#!/bin/bash' > $nameOfFile
+echo 'chrome '$nameOfFile >> $nameOfFile
+echo '' >> $nameOfFile
+
+linkToHomeBin

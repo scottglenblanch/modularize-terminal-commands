@@ -10,3 +10,4 @@ alias re='exec "$SHELL"'
 alias init="source /Users/sblanch/mybashscripts/osx/initGlobalSetup"
 alias mybashscripts="cd ~/mybashscripts"
 alias osx="mybashscripts; osx"
+alias osxbin="osx; cd bin"
