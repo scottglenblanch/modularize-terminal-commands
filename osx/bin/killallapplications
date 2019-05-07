@@ -5,3 +5,4 @@ do
   echo 'Killing '$appName
   osascript -e 'quit app "'$appName'"'
 done
+
