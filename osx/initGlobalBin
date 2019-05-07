@@ -2,7 +2,7 @@
 
 # copy over bin directory
 mkdir ~/bin
-cp -r $SCRIPTPATH/bin/. ~/bin
+cp -r $SCRIPTPATH/bin/* ~/bin
 
 # make bin scripts executable
 chmod -R +x ~/bin
