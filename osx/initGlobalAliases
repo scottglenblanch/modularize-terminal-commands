@@ -1,3 +1,7 @@
-# copy over aliases directory
+#!/bin/bash
+
+# create directory aliases
 mkdir ~/aliases
-cp -r $(pwd)/aliases/* ~/aliases
+
+# copy over files into aliases
+cp -r $SCRIPTPATH/aliases/* ~/aliases
