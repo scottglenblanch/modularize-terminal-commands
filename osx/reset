@@ -1,0 +1,4 @@
+#!/bin/bash
+rm -rf ~/envvars
+rm -rf ~/aliases
+rm -rf ~/bin

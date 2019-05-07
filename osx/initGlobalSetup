@@ -1,4 +1,9 @@
-#/bin/bash
-./init_global_environment_variables
-./init_global_aliases
-./init_global_bin
+#!/bin/bash
+curDir=$(pwd)
+echo $curDir
+source $curDir/reset
+source $curDir/initGlobalEnvironmentVariables
+source $curDir/initGlobalAliases
+source $curDir/initGlobalBin
+
+source  ~/bin/initShell

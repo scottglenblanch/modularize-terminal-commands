@@ -1,4 +1,9 @@
 #!/bin/bash
 
 #to setup environment variables
-source ~/homescripts/setup_environment_variables/setup-path-variable
+for aliasFile in $(ls ~/aliases)
+do
+    cd ~/aliases/
+    echo 'alias file '$aliasFile
+    source $aliasFile
+done
