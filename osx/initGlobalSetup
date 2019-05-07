@@ -1,7 +1,12 @@
 #!/bin/bash
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
-source $SCRIPTPATH/reset
+# uncomment 'source $SCRIPTPATH/reset' line below to delete..
+# ~/bin, ~/envvars, and ~/aliases
+
+
+#source $SCRIPTPATH/reset
+
 source $SCRIPTPATH/initGlobalEnvironmentVariables
 source $SCRIPTPATH/initGlobalAliases
 source $SCRIPTPATH/initGlobalBin
