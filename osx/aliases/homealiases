@@ -1,6 +1,7 @@
 #!/bin/bash
 #basic navigation
-alias home="cd ~"
-alias desk="cd ~/Desktop"
-alias downloads="cd ~/Downloads"
-alias library="cd ~/Library"
+alias home='cd ~'
+alias desk='cd ~/Desktop'
+alias downloads='cd ~/Downloads'
+alias library='cd ~/Library'
+alias re='exec "$SHELL"'
