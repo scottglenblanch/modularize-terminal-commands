@@ -1,0 +1,4 @@
+#!/bin/bash
+read -p "Enter youtube search term: " searchTerm
+
+open "http://www.youtube.com/results?search_query=$searchTerm"

@@ -1,3 +1,9 @@
 #!/bin/bash
-
-
+if [ "$1" != "" ] && [ "$2" != "" ];
+then
+  nameOfFile=$1
+  nameOfAppInApplicationsFolder=$2
+  echo 'open "$2"' > ~/bin/$nameOfFile
+else
+  echo '1st parameter is command, 2nd parameter is file command'
+fi

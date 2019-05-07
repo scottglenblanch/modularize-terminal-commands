@@ -4,4 +4,6 @@ alias home='cd ~'
 alias desk='cd ~/Desktop'
 alias downloads='cd ~/Downloads'
 alias library='cd ~/Library'
-alias re='exec "$SHELL"'
+alias re="source /Users/sblanch/mybashscripts/osx/initGlobalSetup"
+alias mybashscripts="cd ~/mybashscripts"
+# alias re='exec "$SHELL"'
