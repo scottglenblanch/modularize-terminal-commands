@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ "$1" == "" ];
+then
+  echo '1st parameter needs to be name of alias file'
+  exit 1
+fi
+
+nameOfFile=$1
+echo '#!/bin/bash' > $nameOfFile
+vim $nameOfFile
+linkToAliases $nameOfFile
+chmod +x $nameOfFilei
+

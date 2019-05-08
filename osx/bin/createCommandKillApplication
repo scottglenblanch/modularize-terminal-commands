@@ -1,0 +1,14 @@
+#!/bin/bash
+if [ "$1" == "" ] || [ "$2" == "" ]
+then
+  echo '1st parameter is name of command'
+  echo '2nd parameter is name of application you want to kill'
+  exit 1
+fi
+commandName=$1
+appName=$2
+
+killCommandAsString="osascript -e 'quit app \""$appName".app\"'"
+echo $killCommandAsString > $commandName
+linkToHomeBin $commandName
+chmod +x $commandName
