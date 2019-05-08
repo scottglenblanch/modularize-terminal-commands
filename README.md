@@ -1,6 +1,4 @@
-This is base scripts that I like to use
-
-Feel free to download or fork this project
+Project creates boilerplate bash scripts and aliases I find useful. 
 
 Future versions will have Linux distributions and Windows
 
