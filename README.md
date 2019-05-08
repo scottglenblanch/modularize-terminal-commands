@@ -23,6 +23,11 @@ Commands
 * google: After running you can input a search in the terminal, which will then open up a google search in chrome
 * youtube: Will ask for a search and then open that search in youtube
 * killapplications: Will kill all application found in /Applications
-* createCommand: Create your own custom command. You can be in any directory to run this. It will make a copy of the command and hardlink that same file to ~/bin
+* createCommand: Create your own custom command. You can be in any directory to run this. It will make a copy of the command and hardlink that same file to ~/bin  
 * createCommandOpenUrl <command name> <url>: Will create a command which when called will open up the url specified
 * createCommandOpenApplication <command name> <application name in /Applications>: Will create a command to open an application found in /Applications  
+* deleteCommand <command name>: Will delete file in ~/bin and current directory  
+* linkToHomeBin <file name>: Hard links file to ~/bin
+* linkFilesInPwdToHomeBin: Hard links all file in current directory to ~/bin
+* linkToAliases <file name>: Will take file name and hard link to ~/aliases. Aliases in that file are available when the terminal is restarted
+* initShell: command ran from either ~/.bashrc or ~/.zshrc. To run it use source ~/bin/initShell.   
