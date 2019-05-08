@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # create envars directory
-mkdir ~/envvars
+mkdir -p ~/envvars
 
 # copy over files to envvars
 cp $SCRIPTPATH/envvars/* ~/envvars
