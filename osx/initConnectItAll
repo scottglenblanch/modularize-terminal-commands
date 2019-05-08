@@ -16,6 +16,6 @@ fi
 
 RCFILE_PATH=$HOME/$RCFILE_NAME
 touch $RCFILE_PATH
-cat "$RCFILE_PATH" | grep -v "initShellCommand" > temp && mv temp $RCFILE_PATH
+cat "$RCFILE_PATH" | grep -v $initShellCommand > temp && mv temp $RCFILE_PATH
 echo $initShellCommand >> $RCFILE_PATH
 
