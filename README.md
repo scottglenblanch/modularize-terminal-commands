@@ -1,17 +1,29 @@
-Project creates boilerplate bash scripts and aliases I find useful. 
+# Initialize Bash Scripts
 
-Future versions will have Linux distributions and Windows
+Creates commands and aliases to help productivity. 
 
-To get running on Mac
+Current version supports MacOsX. Future versions will support popular Linux distributions and Windows. 
 
-1.) Open either bash or zsh terminal. Support for other terminals coming soon. 
 
-2.) Download this repo. I recommend adding this to your 'home' directory, located at ~. However it will run wherever you decide to put it
+## Installation
 
-3.) Then make contents in osx folder executable. chmod -R +x <path to osx>
+####OS X
 
-4.) Inside of osx folder, run source ./initHomeSetup
-This will copy over folders aliases, bin, and envvars to the ~ directory
+```sh
+git clone git@github.com:scottglenblanch/initialize-base-scripts.git
+chmod -R +x ~/initialize-bases-scripts/osx  
+source ~/initialize-bases-scripts/osx/initHomeSetup
+```
+
+####Linux:
+
+Future Todo
+
+####Windows:
+
+Future Todo
+
+## Usage example
 
 Commands
 
@@ -33,3 +45,34 @@ Commands
   ```source ~/bin/initShell```   
 * initAliases: used by initShell to attach all aliases from files in ~/aliases
 * initEnvironmentVariables: used by initShell to run scripts in ~/envvars. These scripts update environment variables. 
+
+
+## Release History
+* 0.0.1
+    * Work in progress
+
+## Meta
+
+Scott Blanch – [@scottglenblanch](https://twitter.com/dbader_org) – scottglenblanch@gmail.com
+
+Distributed under the MIT license. See ``LICENSE`` for more information.
+
+[https://github.com/scottglenblanch/initialize-base-scripts](https://github.com/dbader/)
+
+## Contributing
+
+1. Fork it (<https://github.com/scottglenblanch/initialize-base-scripts/fork>)
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
+
+<!-- Markdown link & img dfn's -->
+[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/datadog-metrics
+[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
+[wiki]: https://github.com/yourname/yourproject/wiki
+
+
