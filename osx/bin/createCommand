@@ -8,5 +8,5 @@ fi
 nameOfFile=$1
 echo '#!/bin/bash' > $nameOfFile
 vim $nameOfFile
-link $nameOfFile ~/bin/$nameOfFile
+link $nameOfFile $HOME_BIN/$nameOfFile
 chmod +x $nameOfFile
