@@ -1,0 +1,19 @@
+#!/bin/bash
+initShellCommand="source $HOME_BIN/initShell"
+CUR_SHELL="$(echo $SHELL)"
+
+if [ "$CUR_SHELL" = "" ];
+then
+  echo "Shell case not found"
+  exit 1
+elif [ "$CUR_SHELL" = "/bin/zsh" ]
+then
+  RCFILE_NAME=".zshrc"
+elif [ "$CUR_SHELL" = "/bin/bash" ]
+then
+  RCFILE_NAME=".bashrc"
+fi
+
+RCFILE_PATH=$HOME/$RCFILE_NAME
+touch $RCFILE_PATH
+cat "$RCFILE_PATH" | grep -v "initShellCommand" > temp && mv temp $RCFILE_PATH

@@ -4,5 +4,5 @@ SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 source $SCRIPTPATH/initHomeEnvironmentVariables
 source $SCRIPTPATH/initHomeAliases
 source $SCRIPTPATH/initHomeBin
-
+source $SCRIPTPATH/initConnectItAll
 source  ~/bin/initShell
