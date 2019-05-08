@@ -25,4 +25,4 @@ Commands
 * killapplications: Will kill all application found in /Applications
 * createCommand: Create your own custom command. You can be in any directory to run this. It will make a copy of the command and hardlink that same file to ~/bin
 * createCommandOpenUrl <command name> <url>: Will create a command which when called will open up the url specified
-  
+* createCommandOpenApplication <command name> <application name in /Applications>: Will create a command to open an application found in /Applications  
