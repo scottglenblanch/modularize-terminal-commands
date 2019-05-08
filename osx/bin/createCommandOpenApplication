@@ -7,5 +7,6 @@ fi
 
 nameOfFile=$1
 nameOfAppInApplicationsFolder=$2
-echo 'open -na '$nameOfAppInApplicationsFolder > ~/bin/$nameOfFile
+echo 'open -na '$nameOfAppInApplicationsFolder'.app' > ~/bin/$nameOfFile
 chmod +x ~/bin/$nameOfFile
+
