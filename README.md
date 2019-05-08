@@ -2,8 +2,15 @@
 
 Creates commands and aliases to help productivity. 
 
-Current version supports MacOsX. Future versions will support popular Linux distributions and Windows. 
 
+
+## Support
+
+### Script Interpreters
+Current support is for bash and zsh.
+
+### Operating Systems
+Current version supports MacOsX. Future versions will support popular Linux distributions and Windows. 
 
 ## Installation
 
