@@ -30,4 +30,7 @@ Commands
 * linkToHomeBin <file name>: Hard links file to ~/bin
 * linkFilesInPwdToHomeBin: Hard links all file in current directory to ~/bin
 * linkToAliases <file name>: Will take file name and hard link to ~/aliases. Aliases in that file are available when the terminal is restarted
-* initShell: command ran from either ~/.bashrc or ~/.zshrc. To run it you need to do run code ```source ~/bin/initShell```   
+* initShell: command ran from either ~/.bashrc or ~/.zshrc. To run it you need to do run code 
+  ```source ~/bin/initShell```   
+* initAliases: used by initShell to attach all aliases from files in ~/aliases
+* initEnvironmentVariables: used by initShell to run scripts in ~/envvars. These scripts update environment variables. 
