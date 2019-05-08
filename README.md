@@ -7,7 +7,7 @@ Current version supports MacOsX. Future versions will support popular Linux dist
 
 ## Installation
 
-####OS X
+#### OS X
 
 ```sh
 git clone git@github.com:scottglenblanch/initialize-base-scripts.git
@@ -15,11 +15,11 @@ chmod -R +x ~/initialize-bases-scripts/osx
 source ~/initialize-bases-scripts/osx/initHomeSetup
 ```
 
-####Linux:
+#### Linux:
 
 Future Todo
 
-####Windows:
+#### Windows:
 
 Future Todo
 
@@ -40,7 +40,7 @@ Commands
 * linkToHomeBin <file name>: Hard links file to ~/bin
 * linkFilesInPwdToHomeBin: Hard links all file in current directory to ~/bin
 * linkToAliases <file name>: Will take file name and hard link to ~/aliases. Aliases in that file are available when the terminal is restarted
-* initShell: command ran from either ~/.bashrc or ~/.zshrc. To run it you need to do run code 
+* initShell: command ran from either ~/.bashrc or ~/.zshrc. To run it you need run code 
   
   ```source ~/bin/initShell```   
 * initAliases: used by initShell to attach all aliases from files in ~/aliases
