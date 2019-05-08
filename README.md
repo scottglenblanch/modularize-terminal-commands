@@ -60,11 +60,11 @@ Commands
 
 ## Meta
 
-Scott Blanch – [@scottglenblanch](https://twitter.com/dbader_org) – scottglenblanch@gmail.com
+Scott Blanch – [@scottglenblanch](https://twitter.com/scottglenblanch) – scottglenblanch@gmail.com
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
 
-[https://github.com/scottglenblanch/initialize-base-scripts](https://github.com/dbader/)
+[https://github.com/scottglenblanch/initialize-base-scripts](https://github.com/scottglenblanch/)
 
 ## Contributing
 
