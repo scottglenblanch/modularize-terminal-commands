@@ -7,8 +7,5 @@ fi
 
 nameOfFile=$1
 nameOfAppInApplicationsFolder=$2
-echo 'open -na '$nameOfAppInApplicationsFolder'.app' > $nameOfFile
+echo 'open -na '$nameOfAppInApplicationsFolder'.app' > $HOME_BIN/$nameOfFile
 chmod +x $HOME_BIN/$nameOfFile
-linkToHomeBin $nameOfFile
-
-
