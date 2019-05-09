@@ -1,5 +1,5 @@
 #!/bin/bash
-INITIALIZE_SHELL_COMMAND="source $HOME_BIN/initShell"
+INITIALIZE_SHELL_COMMAND="source $HOME_BIN/setup-shell"
 CUR_SHELL="$(echo $SHELL)"
 
 if [ "$CUR_SHELL" = "" ];

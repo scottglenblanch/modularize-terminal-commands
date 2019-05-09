@@ -34,22 +34,7 @@ Future Todo
 
 Commands
 
-* chrome: opens up chrome pointing to google.com
-* chrome <url>: opens up that url in chrome 
-* killchrome: will gracefully kill chrome
-* google: After running you can input a search in the terminal, which will then open up a google search in chrome
-* youtube: Will ask for a search and then open that search in youtube
-* killapplications: Will kill all application found in /Applications
-* createCommand: Create your own custom command. You can be in any directory to run this. It will make a copy of the command and hardlink that same file to ~/bin  
-* createCommandOpenUrl <command name> <url>: Will create a command which when called will open up the url specified
-* createCommandOpenApplication <command name> <application name in /Applications>: Will create a command to open an application found in /Applications  
-* deleteCommand <command name>: Will delete file in ~/bin and current directory  
-* initShell: command ran from either ~/.bashrc or ~/.zshrc. To run it you need run code 
-  
-  ```source ~/bin/initShell```   
-* initAliases: used by initShell to attach all aliases from files in ~/aliases
-* initEnvironmentVariables: used by initShell to run scripts in ~/envvars. These scripts update environment variables. 
-
+* Added in near future
 
 ## Release History
 * 0.0.1

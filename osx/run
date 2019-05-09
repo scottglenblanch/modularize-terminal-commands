@@ -2,9 +2,9 @@
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 SETUP_SCRIPTS_PATH=$SCRIPTPATH/setup
 
-source $SETUP_SCRIPTS_PATH/setupEnvvars
-source $SETUP_SCRIPTS_PATH/setupAliases
-source $SETUP_SCRIPTS_PATH/setupBin
+source $SETUP_SCRIPTS_PATH/setup-envvars
+source $SETUP_SCRIPTS_PATH/setup-aliases
+source $SETUP_SCRIPTS_PATH/setup-bin
 
-source  ~/bin/initShell
-source $SETUP_SCRIPTS_PATH/setupWiring
+source  $HOME_BIN/setup-shell
+source $SETUP_SCRIPTS_PATH/setup-wiring
