@@ -19,7 +19,7 @@ Current version supports MacOsX. Future versions will support popular Linux dist
 ```sh
 git clone git@github.com:scottglenblanch/initialize-base-scripts.git
 chmod -R +x ~/initialize-base-scripts/osx  
-source ~/initialize-base-scripts/osx/initHomeSetup
+source ~/initialize-base-scripts/osx/run
 ```
 
 #### Linux:
