@@ -6,8 +6,9 @@ then
 fi
 
 nameOfFile=$1
+urlToGoTo=$2
 echo '#!/bin/bash' > $nameOfFile
-echo 'chrome '$nameOfFile >> $nameOfFile
+echo 'chrome '$2 >> $nameOfFile
 echo '' >> $nameOfFile
-
-linkToHomeBin
+chmod +x $nameOfFile
+linkToHomeBin $nameOfFile
