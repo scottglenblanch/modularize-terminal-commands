@@ -17,9 +17,9 @@ Current version supports MacOsX. Future versions will support popular Linux dist
 #### OS X
 
 ```sh
-git clone git@github.com:scottglenblanch/initialize-base-scripts.git
-chmod -R +x ~/initialize-base-scripts/osx  
-source ~/initialize-base-scripts/osx/run
+git clone git@github.com:scottglenblanch/setup-bash.git
+chmod -R +x ~/setup-bash/osx  
+source ~/setup-bash/osx/run
 ```
 
 #### Linux:
