@@ -1,5 +1,5 @@
 #!/bin/bash
-INITIALIZE_SHELL_COMMAND="source $HOME_BIN/setup-shell"
+INITIALIZE_SHELL_COMMAND="source $HOME_BIN/setup.shell"
 CUR_SHELL="$(echo $SHELL)"
 
 
@@ -21,4 +21,3 @@ RCFILE_PATH=$HOME/$RCFILE_NAME
 touch $RCFILE_PATH
 cat "$RCFILE_PATH" | grep -v $INITIALIZE_SHELL_COMMAND > temp && mv temp $RCFILE_PATH
 echo $INITIALIZE_SHELL_COMMAND >> $RCFILE_PATH
-
