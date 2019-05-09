@@ -12,4 +12,4 @@ echo 'chrome '$2 >> $nameOfFile
 echo '' >> $nameOfFile
 chmod +x $nameOfFile
 link $nameOfFile $HOME_BIN/$nameOfFile
-setup-shell
+setup.shell
