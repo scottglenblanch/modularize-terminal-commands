@@ -1,0 +1,4 @@
+#!/bin/bash
+#to setup aliases
+source ~/bin/setup.aliases
+source ~/bin/setup.envvars
