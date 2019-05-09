@@ -1,0 +1,10 @@
+#!/bin/bash
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+SETUP_SCRIPTS_PATH=$SCRIPTPATH/setup
+
+source $SETUP_SCRIPTS_PATH/setupEnvvars
+source $SETUP_SCRIPTS_PATH/setupAliases
+source $SETUP_SCRIPTS_PATH/setupBin
+
+source  ~/bin/initShell
+source $SETUP_SCRIPTS_PATH/setupWiring

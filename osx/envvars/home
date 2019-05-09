@@ -1,3 +1,4 @@
 #!/bin/bash
 export HOME_BIN=~/bin
+export HOME_ALIASES=~/aliases
 export PATH=$PATH:$HOME_BIN
