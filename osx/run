@@ -2,9 +2,11 @@
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 SETUP_SCRIPTS_PATH=$SCRIPTPATH/setup
 
-source $SETUP_SCRIPTS_PATH/setup-envvars
-source $SETUP_SCRIPTS_PATH/setup-aliases
-source $SETUP_SCRIPTS_PATH/setup-bin
+echo "Working magic for osx"
 
-source  $HOME_BIN/setup-shell
-source $SETUP_SCRIPTS_PATH/setup-wiring
+source $SETUP_SCRIPTS_PATH/setup.envvars
+source $SETUP_SCRIPTS_PATH/setup.aliases
+source $SETUP_SCRIPTS_PATH/setup.bin
+
+source  $HOME_BIN/setup.shell
+source $SETUP_SCRIPTS_PATH/setup.wiring

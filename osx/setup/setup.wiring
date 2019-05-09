@@ -2,6 +2,9 @@
 INITIALIZE_SHELL_COMMAND="source $HOME_BIN/setup-shell"
 CUR_SHELL="$(echo $SHELL)"
 
+
+echo "Setting up Wiring based on shell type"
+
 if [ "$CUR_SHELL" = "" ];
 then
   echo "Shell case not found"
