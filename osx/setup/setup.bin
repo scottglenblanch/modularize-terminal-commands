@@ -1,9 +1,10 @@
 #!/bin/bash
-
 echo "Setting up Commands"
-# copy over bin directory
-mkdir -p ~/bin
-cp -r $SCRIPTPATH/bin/* ~/bin
+mkdir -p $ROOT_BIN
 
-# make bin scripts executable
-chmod -R +x ~/bin
+for FILE in $(ls $SCRIPT_BIN)
+do
+  cp -f $SCRIPT_BIN/$FILE $ROOT_BIN
+done
+
+chmod -R +x $ROOT_BIN

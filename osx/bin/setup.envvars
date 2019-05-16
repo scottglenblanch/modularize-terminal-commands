@@ -1,5 +1,5 @@
 #!/bin/bash
-for scriptName in $(ls ~/envvars)
+for scriptName in $(ls $HOME/envvars)
 do
-  source ~/envvars/$scriptName
+  source $HOME/envvars/$scriptName
 done

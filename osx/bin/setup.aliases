@@ -1,5 +1,5 @@
 #!/bin/bash
-for aliasFile in $(ls ~/aliases)
+for aliasFile in $(ls $HOME/aliases)
 do
-  source ~/aliases/$aliasFile
+  source $HOME/aliases/$aliasFile
 done

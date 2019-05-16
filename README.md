@@ -18,8 +18,8 @@ Current version supports MacOsX. Future versions will support popular Linux dist
 
 ```sh
 git clone git@github.com:scottglenblanch/setup-bash.git
-chmod -R +x ~/setup-bash/osx  
-source ~/setup-bash/osx/run
+chmod -R +x $HOME/setup-bash/osx  
+source $HOME/setup-bash/osx/run
 ```
 
 #### Linux:

@@ -8,6 +8,6 @@ fi
 nameOfFile=$1
 
 rm ./$nameOfFile
-rm ~/bin/$nameOfFile
+rm $HOME/bin/$nameOfFile
 
 echo 'deleted command '$nameOfFile

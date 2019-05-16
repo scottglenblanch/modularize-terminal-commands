@@ -1,8 +1,10 @@
 #!/bin/bash
-
 echo "Setting up Environment Variables"
-# create envars directory
-mkdir -p ~/envvars
+mkdir -p $ROOT_ENVVARS
 
-# copy over files to envvars
-cp $SCRIPTPATH/envvars/* ~/envvars
+for FILE in $(ls $SCRIPT_ENVVARS)
+do
+  cp -f $SCRIPT_ENVVARS/$FILE $ROOT_ENVVARS
+done
+
+chmod -R +x $ROOT_ENVVARS

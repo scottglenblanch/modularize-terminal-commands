@@ -1,8 +1,10 @@
 #!/bin/bash
-
 echo "Setting up Aliases"
-# create directory aliases
-mkdir -p ~/aliases
+mkdir -p $ROOT_ALIASES
 
-# copy over files into aliases
-cp -r $SCRIPTPATH/aliases/* ~/aliases
+for FILE in $(ls $SCRIPT_ALIASES)
+do
+  cp -f $SCRIPT_ALIASES/$FILE $ROOT_ALIASES
+done
+
+chmod -R +x $ROOT_ALIASES

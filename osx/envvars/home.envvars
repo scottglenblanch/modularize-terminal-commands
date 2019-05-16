@@ -1,5 +1,5 @@
 #!/bin/bash
-export HOME_BIN=~/bin
-export HOME_ALIASES=~/aliases
-export HOME_ENVVARS=~/envvars
+export HOME_BIN=$HOME/bin
+export HOME_ALIASES=$HOME/aliases
+export HOME_ENVVARS=$HOME/envvars
 export PATH=$PATH:$HOME_BIN

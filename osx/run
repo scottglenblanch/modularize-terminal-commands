@@ -1,13 +1,33 @@
 #!/bin/bash
-SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
-SETUP_SCRIPTS_PATH=$SCRIPTPATH/setup
+
+get_script_dir()
+{
+  SOURCE="${BASH_SOURCE[0]}"
+  while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+    DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+    SOURCE="$(readlink "$SOURCE")"
+    [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+  done
+  echo "$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+}
+
+SCRIPT_DIR=$(get_script_dir)
+echo "scriptdir: $SCRIPT_DIR"
+SCRIPT_ALIASES=$SCRIPT_DIR/aliases
+SCRIPT_BIN=$SCRIPT_DIR/bin
+SCRIPT_ENVVARS=$SCRIPT_DIR/envvars
+
+ROOT_DIR=$HOME
+ROOT_ALIASES=$ROOT_DIR/aliases
+ROOT_BIN=$ROOT_DIR/bin
+ROOT_ENVVARS=$ROOT_DIR/envvars
+
+SETUP_SCRIPTS_PATH_DIR=$SCRIPT_DIR/setup
 
 echo "Working magic for osx"
 
-source $SETUP_SCRIPTS_PATH/setup.envvars
-source $SETUP_SCRIPTS_PATH/setup.aliases
-source $SETUP_SCRIPTS_PATH/setup.bin
+source $SETUP_SCRIPTS_PATH_DIR/setup.envvars
+source $SETUP_SCRIPTS_PATH_DIR/setup.aliases
+source $SETUP_SCRIPTS_PATH_DIR/setup.bin
 
-source  $HOME_BIN/setup.shell
-source $SETUP_SCRIPTS_PATH/setup.wiring
-
+source $SETUP_SCRIPTS_PATH_DIR/setup.wiring
