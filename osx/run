@@ -10,3 +10,4 @@ source $SETUP_SCRIPTS_PATH/setup.bin
 
 source  $HOME_BIN/setup.shell
 source $SETUP_SCRIPTS_PATH/setup.wiring
+
