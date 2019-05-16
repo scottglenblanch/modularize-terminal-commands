@@ -1,9 +1,8 @@
 #!/bin/bash
 #basic navigation
-alias home='cd $HOME'
-alias homebin="cd $HOME_BIN"
-alias homealiases="cd $HOME_ALIASES"
-alias desk='cd $HOME/Desktop'
+alias home.dir="cd $HOME_BIN"
+alias home.aliases.dir="cd $HOME_ALIASES"
+alias desktop='cd $HOME/Desktop'
 alias downloads='cd $HOME/Downloads'
 alias library='cd $HOME/Library'
 alias re='exec "$SHELL"'
