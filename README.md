@@ -19,7 +19,7 @@ Current version supports MacOsX. Future versions will support popular Linux dist
 ```sh
 git clone git@github.com:scottglenblanch/setup-bash.git
 chmod -R +x setup-bash/osx  
-./setup-bash/osx/run ./setup-bash/osx <Root where you want to hook up all your bash scripts>
+./setup-bash/osx/run
 ```
 
 #### Linux:
