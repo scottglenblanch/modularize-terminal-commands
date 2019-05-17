@@ -1,5 +1,5 @@
 #!/bin/bash
-INITIALIZE_SHELL_COMMAND="source $ROOT_DIR/setup.shell"
+INITIALIZE_SHELL_COMMAND="source $ROOT_DIR/bin/setup.shell"
 CUR_SHELL="$(echo $SHELL)"
 
 echo "Setting up Wiring based on shell type"
