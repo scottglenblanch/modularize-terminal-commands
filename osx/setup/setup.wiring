@@ -1,5 +1,5 @@
 #!/bin/bash
-INITIALIZE_SHELL_COMMAND="source $ROOT_BIN/setup.shell"
+INITIALIZE_SHELL_COMMAND="source $ROOT_DIR/setup.shell"
 CUR_SHELL="$(echo $SHELL)"
 
 
@@ -11,13 +11,17 @@ then
   exit 1
 elif [ "$CUR_SHELL" = "/bin/zsh" ]
 then
+  cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
   RCFILE_NAME=".zshrc"
 elif [ "$CUR_SHELL" = "/bin/bash" ]
 then
   RCFILE_NAME=".bashrc"
 fi
 
-RCFILE_PATH=$HOME/$RCFILE_NAME
-touch $RCFILE_PATH
-cat "$RCFILE_PATH" | grep -v $INITIALIZE_SHELL_COMMAND > temp && mv temp $RCFILE_PATH
-echo $INITIALIZE_SHELL_COMMAND >> $RCFILE_PATH
+RCFILE_PATH=$ROOT_DIR/$RCFILE_NAME
+# touch $RCFILE_PATH
+
+if [ "$(cat $RCFILE_PATH | grep $INITIALIZE_SHELL_COMMAND)" == "" ]
+then
+  # echo $INITIALIZE_SHELL_COMMAND >> $RCFILE_PATH
+fi
