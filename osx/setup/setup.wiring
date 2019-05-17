@@ -2,7 +2,6 @@
 INITIALIZE_SHELL_COMMAND="source $ROOT_DIR/setup.shell"
 CUR_SHELL="$(echo $SHELL)"
 
-
 echo "Setting up Wiring based on shell type"
 
 if [ "$CUR_SHELL" = "" ];
@@ -11,7 +10,6 @@ then
   exit 1
 elif [ "$CUR_SHELL" = "/bin/zsh" ]
 then
-  cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
   RCFILE_NAME=".zshrc"
 elif [ "$CUR_SHELL" = "/bin/bash" ]
 then
@@ -19,9 +17,8 @@ then
 fi
 
 RCFILE_PATH=$ROOT_DIR/$RCFILE_NAME
-# touch $RCFILE_PATH
 
-if [ "$(cat $RCFILE_PATH | grep $INITIALIZE_SHELL_COMMAND)" == "" ]
+if [ "$(cat $RCFILE_PATH | grep "$INITIALIZE_SHELL_COMMAND")" == "" ]
 then
-  # echo $INITIALIZE_SHELL_COMMAND >> $RCFILE_PATH
+  echo $INITIALIZE_SHELL_COMMAND >> $RCFILE_PATH
 fi
