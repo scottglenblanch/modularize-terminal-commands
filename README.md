@@ -1,6 +1,6 @@
 # Initialize Bash Scripts
 
-Creates commands and aliases to help productivity. 
+Creates commands and aliases to help productivity.
 
 
 
@@ -10,7 +10,7 @@ Creates commands and aliases to help productivity.
 Current support is for bash and zsh.
 
 ### Operating Systems
-Current version supports MacOsX. Future versions will support popular Linux distributions and Windows. 
+Current version supports MacOsX. Future versions will support popular Linux distributions and Windows.
 
 ## Installation
 
@@ -18,8 +18,8 @@ Current version supports MacOsX. Future versions will support popular Linux dist
 
 ```sh
 git clone git@github.com:scottglenblanch/setup-bash.git
-chmod -R +x $HOME/setup-bash/osx  
-source $HOME/setup-bash/osx/run
+chmod -R +x setup-bash/osx  
+./setup-bash/osx/run ./setup-bash/osx <Root where you want to hook up all your bash scripts>
 ```
 
 #### Linux:
@@ -55,6 +55,3 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
 5. Create a new Pull Request
-
-
-
