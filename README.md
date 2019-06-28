@@ -57,4 +57,4 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 5. Create a new Pull Request
 
 ## Special Thanks
-Special Thanks to @wcspcbmt for teaching me bash. My eyes have been opened to the power of the terminal. 
+Special Thanks to [@wcspcbmt] for teaching me bash. My eyes have been opened to the power of the terminal. 
