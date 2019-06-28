@@ -1,23 +1,38 @@
 #!/bin/bash
 
+SCRIPT_DIR=""
+MODULE_BASHING_DIR=""
+HOME_DIR=""
 
-get_script_dir()
-{
-  SOURCE="${BASH_SOURCE[0]}"
-  while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
-    DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-    SOURCE="$(readlink "$SOURCE")"
-    [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
-  done
-  echo "$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+set_script_dir() {
+	get_script_dir() {
+		SOURCE="${BASH_SOURCE[0]}"
+		while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+			DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+			SOURCE="$(readlink "$SOURCE")"
+			[[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+		done
+		echo "$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+	}
+
+	SCRIPT_DIR="$(get_script_dir)"
+	echo "SCRIPT_DIR now set to $SCRIPT_DIR"
 }
 
 set_module_bashing_dir() {
-	export MODULE_BASHING_DIR=$(echo $(bash -c 'read -e -p "Where you want the module bashing directory to be? Make sure to use absolute path: " MODULE_BASHING_DIR; echo "MODULE_BASHING_DIR is set to $MODULE_BASHING_DIR"'))
+	MODULE_BASHING_DIR=$(echo $(bash -c 'read -e -p "Where you want the module bashing directory to be? Make sure to use absolute path: " MODULE_BASHING_DIR; echo "$MODULE_BASHING_DIR"'))
+	echo "MODULE_BASHING_DIR now set to $MODULE_BASHING_DIR"
 }
 
 set_home_dir() {
-	export HOME_DIR=$(echo $(bash -c 'read -e -p "Where is your home directory? Make sure to use absolute path. Do not include ~: " MODULE_BASHING_DIR; echo "MODULE_BASHING_DIR is set to $MODULE_BASHING_DIR"'))
+	HOME_DIR=$(echo $(bash -c 'read -e -p "Where is your home directory? Make sure to use absolute path. Do not include ~: " HOME_DIR; echo "$HOME_DIR"'))
+	echo "HOME_DIR now set to $HOME_DIR"
+}
+
+set_needed_variables() {
+	set_script_dir
+	set_module_bashing_dir
+	set_home_dir
 }
 
 get_setup_dir() {
@@ -29,7 +44,7 @@ show_initial_message() {
 }
 
 run_setup_aliases() {
-	source "$(get_setup_dir)/setup.aliases"
+	source $(get_setup_dir)/setup.aliases "$SCRIPT_DIR" "$MODULE_BASHING_DIR" "$HOME_DIR"
 }
 
 run_setup_bin() {
@@ -45,17 +60,14 @@ run_setup_wiring() {
 }
 
 
-
-
 show_initial_message
 
-set_module_bashing_dir
-set_home_dir
+set_needed_variables
 
 run_setup_aliases
-run_setup_bin
-run_setup_envvars
-run_setup_wiring
+#run_setup_bin
+#run_setup_envvars
+#run_setup_wiring
 
 
 
