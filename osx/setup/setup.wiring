@@ -1,24 +1,24 @@
 #!/bin/bash
-INITIALIZE_SHELL_COMMAND="source $ROOT_DIR/bin/setup.shell"
-CUR_SHELL="$(echo $SHELL)"
-
-echo "Setting up Wiring based on shell type"
-
-if [ "$CUR_SHELL" = "" ];
-then
-  echo "Shell case not found"
-  exit 1
-elif [ "$CUR_SHELL" = "/bin/zsh" ]
-then
-  RCFILE_NAME=".zshrc"
-elif [ "$CUR_SHELL" = "/bin/bash" ]
-then
-  RCFILE_NAME=".bashrc"
-fi
-
-RCFILE_PATH=$ROOT_DIR/$RCFILE_NAME
-
-if [ "$(cat $RCFILE_PATH | grep "$INITIALIZE_SHELL_COMMAND")" == "" ]
-then
-  echo $INITIALIZE_SHELL_COMMAND >> $RCFILE_PATH
-fi
+#INITIALIZE_SHELL_COMMAND="source $MODULE_BASHING_DIR/bin/setup.shell"
+#CUR_SHELL="$(echo $SHELL)"
+#
+#echo "Setting up Wiring based on shell type"
+#
+#if [ "$CUR_SHELL" = "" ];
+#then
+#  echo "Shell case not found"
+#  exit 1
+#elif [ "$CUR_SHELL" = "/bin/zsh" ]
+#then
+#  RCFILE_NAME=".zshrc"
+#elif [ "$CUR_SHELL" = "/bin/bash" ]
+#then
+#  RCFILE_NAME=".bashrc"
+#fi
+#
+#RCFILE_PATH=$MODULE_BASHING_DIR/$RCFILE_NAME
+#
+#if [ "$(cat $RCFILE_PATH | grep "$INITIALIZE_SHELL_COMMAND")" == "" ]
+#then
+#  echo $INITIALIZE_SHELL_COMMAND >> $RCFILE_PATH
+#fi

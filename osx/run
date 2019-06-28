@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 get_script_dir()
 {
   SOURCE="${BASH_SOURCE[0]}"
@@ -11,23 +12,42 @@ get_script_dir()
   echo "$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 }
 
-SCRIPT_DIR=$(get_script_dir)
-echo "scriptdir: $SCRIPT_DIR"
-SCRIPT_ALIASES=$SCRIPT_DIR/aliases
-SCRIPT_BIN=$SCRIPT_DIR/bin
-SCRIPT_ENVVARS=$SCRIPT_DIR/envvars
+get_module_bashing_dir() {
+	echo $(bash -c 'read -e -p "Where you want the module bashing directory to be? Make sure to use absolute path: " MODULE_BASHING_DIR; echo "MODULE_BASHING_DIR is set to $MODULE_BASHING_DIR"')
+}
 
-ROOT_DIR=$HOME
-ROOT_ALIASES=$ROOT_DIR/aliases
-ROOT_BIN=$ROOT_DIR/bin
-ROOT_ENVVARS=$ROOT_DIR/envvars
+get_setup_dir() {
+	echo "$(get_script_dir)/setup"
+}
 
-SETUP_SCRIPTS_PATH_DIR=$SCRIPT_DIR/setup
+show_initial_message() {
+	echo "Working magic for osx"
+}
 
-echo "Working magic for osx"
+run_setup_aliases() {
+	source "$(get_setup_dir)/setup.aliases"
+}
 
-source $SETUP_SCRIPTS_PATH_DIR/setup.envvars
-source $SETUP_SCRIPTS_PATH_DIR/setup.aliases
-source $SETUP_SCRIPTS_PATH_DIR/setup.bin
+run_setup_bin() {
+	source "$(get_setup_dir)/setup.bin"
+}
 
-source $SETUP_SCRIPTS_PATH_DIR/setup.wiring
+run_setup_envvars() {
+	source "$(get_setup_dir)/setup.envvars"
+}
+
+run_setup_wiring() {
+	source "$(get_setup_dir)/setup.wiring"
+}
+
+
+show_initial_message
+run_setup_aliases
+run_setup_bin
+run_setup_envvars
+run_setup_wiring
+
+
+
+
+
