@@ -55,3 +55,6 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
 5. Create a new Pull Request
+
+## Special Thanks
+Special Thanks to @wcspcbmt for teaching me bash. My eyes have been opened to the power of the terminal. 
