@@ -12,8 +12,12 @@ get_script_dir()
   echo "$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 }
 
-get_module_bashing_dir() {
-	echo $(bash -c 'read -e -p "Where you want the module bashing directory to be? Make sure to use absolute path: " MODULE_BASHING_DIR; echo "MODULE_BASHING_DIR is set to $MODULE_BASHING_DIR"')
+set_module_bashing_dir() {
+	export MODULE_BASHING_DIR=$(echo $(bash -c 'read -e -p "Where you want the module bashing directory to be? Make sure to use absolute path: " MODULE_BASHING_DIR; echo "MODULE_BASHING_DIR is set to $MODULE_BASHING_DIR"'))
+}
+
+set_home_dir() {
+	export HOME_DIR=$(echo $(bash -c 'read -e -p "Where is your home directory? Make sure to use absolute path. Do not include ~: " MODULE_BASHING_DIR; echo "MODULE_BASHING_DIR is set to $MODULE_BASHING_DIR"'))
 }
 
 get_setup_dir() {
@@ -41,7 +45,13 @@ run_setup_wiring() {
 }
 
 
+
+
 show_initial_message
+
+set_module_bashing_dir
+set_home_dir
+
 run_setup_aliases
 run_setup_bin
 run_setup_envvars
