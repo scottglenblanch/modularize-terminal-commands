@@ -17,7 +17,7 @@ set_variables() {
 }
 
 get_bash_setup_dir() {
-	echo "${PROJECT_NAME}.bash.stuff"
+	echo "$(pwd)/${PROJECT_NAME}.bash.stuff"
 }
 
 get_aliases_dir_path() {
@@ -44,19 +44,30 @@ create_envvars_dir() {
 	mkdir -p "$(get_envvars_dir_path)"
 }
 
-create_aliases() {
+show_create_aliases_message() {
 	echo "Creating aliases for project $PROJECT_NAME"
+}
 
+show_create_bin_message() {
+	echo "Creating bin for project $PROJECT_NAME"
+}
+
+show_create_envvars_message() {
+	echo "Creating envvars/environment variables for project $PROJECT_NAME"
+}
+
+create_aliases() {
+	show_create_aliases_message
 	create_aliases_dir
 }
 
 create_bin() {
-	echo "Creating bin for project $PROJECT_NAME"
+	show_create_bin_message
 	create_bin_dir
 }
 
 create_envvars() {
-	echo "Creating envvars/environment variables for project $PROJECT_NAME"
+	show_create_envvars_message
 	create_envvars_dir
 }
 
