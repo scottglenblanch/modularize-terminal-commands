@@ -1,8 +1,6 @@
 #!/bin/bash
-#basic navigation
-alias home.dir="cd $HOME_BIN"
-alias home.aliases.dir="cd $HOME_ALIASES"
+
 alias desktop='cd $HOME/Desktop'
 alias downloads='cd $HOME/Downloads'
 alias library='cd $HOME/Library'
-alias re='exec "$SHELL"'
+alias re='reload.shell'

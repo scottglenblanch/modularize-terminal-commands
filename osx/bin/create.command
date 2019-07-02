@@ -5,8 +5,8 @@ then
   exit 1
 fi
 
-nameOfFile=$1
-echo '#!/bin/bash' > $nameOfFile
-vim $nameOfFile
-link $nameOfFile $HOME_BIN/$nameOfFile
-chmod +x $nameOfFile
+command_name=$1
+echo '#!/bin/bash' > $command_name
+editor $command_name
+link $command_name $MODULAR_BASHING_BIN_DIR/$command_name
+chmod +x $command_name

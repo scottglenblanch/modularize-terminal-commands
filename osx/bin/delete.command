@@ -5,9 +5,9 @@ then
   exit 1
 fi
 
-nameOfFile=$1
+command_name=$1
 
-rm ./$nameOfFile
-rm $HOME/bin/$nameOfFile
+rm ./$command_name
+rm $HOME/bin/$command_name
 
-echo 'deleted command '$nameOfFile
+echo 'deleted command '$command_name

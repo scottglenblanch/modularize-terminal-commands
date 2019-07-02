@@ -1,4 +1,4 @@
 #!/bin/bash
-read -p "Enter youtube search term: " searchTerm
+read -p "Enter youtube search term: " search_term
 
-chrome "http://www.youtube.com/results?search_query=$searchTerm"
+chrome "http://www.youtube.com/results?search_query=$search_term"

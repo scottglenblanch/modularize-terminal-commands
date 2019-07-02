@@ -1,5 +1,29 @@
 #!/bin/bash
-for aliasFile in $(ls $HOME/aliases)
-do
-  source $HOME/aliases/$aliasFile
-done
+
+trim_string() {
+	to_trim=$1
+	echo "$to_trim" | xargs
+}
+
+get_aliases_path() {
+	echo -e "$MODULAR_BASHING_DIR/aliases"
+}
+
+get_aliases_filenames() {
+	echo -e $(ls "$(get_aliases_path)")
+}
+
+load_alias_file() {
+	aliases_file="$(trim_string "$1")"
+	source "$(get_aliases_path)/$aliases_file"
+}
+
+run_script() {
+	for aliases_file in $(get_aliases_filenames)
+	do
+		load_alias_file "$aliases_file"
+	done
+}
+
+run_script
+

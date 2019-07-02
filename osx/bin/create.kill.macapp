@@ -5,9 +5,9 @@ then
   echo '2nd parameter is name of application you want to kill'
   exit 1
 fi
-commandName=$1
-appName=$2
+command_name=$1
+app_name=$2
 
-killCommandAsString="osascript -e 'quit app \""$appName".app\"'"
-echo $killCommandAsString > $HOME_BIN/$commandName
-chmod +x $HOME_BIN/$commandName
+killCommandAsString="osascript -e 'quit app \""$app_name".app\"'"
+echo $killCommandAsString > $MODULAR_BASHING_BIN_DIR/$command_name
+chmod +x $MODULAR_BASHING_BIN_DIR/$command_name

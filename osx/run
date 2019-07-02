@@ -1,33 +1,108 @@
 #!/bin/bash
 
-get_script_dir()
-{
-  SOURCE="${BASH_SOURCE[0]}"
-  while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
-    DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-    SOURCE="$(readlink "$SOURCE")"
-    [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
-  done
-  echo "$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+SCRIPT_DIR=""
+MODULAR_BASHING_DIR=""
+HOME_DIR=""
+
+get_script_dir() {
+	SOURCE="${BASH_SOURCE[0]}"
+	while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+		DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+		SOURCE="$(readlink "$SOURCE")"
+		[[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+	done
+	echo "$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 }
 
-SCRIPT_DIR=$(get_script_dir)
-echo "scriptdir: $SCRIPT_DIR"
-SCRIPT_ALIASES=$SCRIPT_DIR/aliases
-SCRIPT_BIN=$SCRIPT_DIR/bin
-SCRIPT_ENVVARS=$SCRIPT_DIR/envvars
+format_path_with_tilde_in_front() {
+	path="$1"
 
-ROOT_DIR=$HOME
-ROOT_ALIASES=$ROOT_DIR/aliases
-ROOT_BIN=$ROOT_DIR/bin
-ROOT_ENVVARS=$ROOT_DIR/envvars
+	echo ${path/#\~/$HOME}
+}
 
-SETUP_SCRIPTS_PATH_DIR=$SCRIPT_DIR/setup
+format_path_with_period_in_front() {
+	path="$1"
 
-echo "Working magic for osx"
+	echo ${path/#\./$(pwd)}
+}
 
-source $SETUP_SCRIPTS_PATH_DIR/setup.envvars
-source $SETUP_SCRIPTS_PATH_DIR/setup.aliases
-source $SETUP_SCRIPTS_PATH_DIR/setup.bin
+format_path() {
+	path="$1"
+	path="$(format_path_with_tilde_in_front "$path")"
+	path="$(format_path_with_period_in_front "$path")"
 
-source $SETUP_SCRIPTS_PATH_DIR/setup.wiring
+	echo "$path"
+}
+
+set_home_dir() {
+	HOME_DIR="$(format_path "~")"
+
+	echo "HOME_DIR now set to $HOME_DIR"
+}
+
+get_modular_bashing_directory_from_input() {
+	input="$(echo $(bash -c 'read -e -p "Path for modular bashing directory?: " input; echo "$input"'))"
+
+	echo "$(format_path "$input")"
+}
+
+set_modular_bashing_dir() {
+	MODULAR_BASHING_DIR="$(get_modular_bashing_directory_from_input)"
+	echo "MODULAR_BASHING_DIR now set to $MODULAR_BASHING_DIR"
+}
+
+set_script_dir() {
+	SCRIPT_DIR="$(get_script_dir)"
+	echo "SCRIPT_DIR now set to $SCRIPT_DIR"
+}
+
+
+set_needed_variables() {
+	set_script_dir
+	set_modular_bashing_dir
+	set_home_dir
+}
+
+create_modular_bashing_directory() {
+	mkdir -p "$MODULAR_BASHING_DIR"
+}
+
+get_setup_dir() {
+	echo "$(get_script_dir)/setup"
+}
+
+show_initial_message() {
+	echo "Working magic for osx"
+}
+
+run_setup_aliases() {
+	source $(get_setup_dir)/setup.aliases "$SCRIPT_DIR" "$MODULAR_BASHING_DIR" "$HOME_DIR"
+}
+
+run_setup_bin() {
+	source $(get_setup_dir)/setup.bin "$SCRIPT_DIR" "$MODULAR_BASHING_DIR" "$HOME_DIR"
+}
+
+run_setup_envvars() {
+	source "$(get_setup_dir)/setup.envvars" "$SCRIPT_DIR" "$MODULAR_BASHING_DIR" "$HOME_DIR"
+}
+
+run_setup_wiring() {
+	source "$(get_setup_dir)/setup.wiring" "$SCRIPT_DIR" "$MODULAR_BASHING_DIR" "$HOME_DIR"
+}
+
+setup() {
+	run_setup_aliases
+	run_setup_bin
+	run_setup_envvars
+	run_setup_wiring
+}
+
+run_script() {
+	show_initial_message
+	set_needed_variables
+	create_modular_bashing_directory
+	setup
+}
+
+run_script

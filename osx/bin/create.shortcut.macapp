@@ -5,7 +5,7 @@ then
   exit 1
 fi
 
-nameOfFile=$1
-nameOfAppInApplicationsFolder=$2
-echo 'open -na '$nameOfAppInApplicationsFolder'.app "$@"' > $HOME_BIN/$nameOfFile
-chmod +x $HOME_BIN/$nameOfFile
+command_name=$1
+name_of_app_in_applications_folder=$2
+echo 'open -na '$name_of_app_in_applications_folder'.app "$@"' > $MODULAR_BASHING_BIN_DIR/$command_name
+chmod +x $MODULAR_BASHING_BIN_DIR/$command_name

@@ -5,10 +5,10 @@ then
   exit 1
 fi
 
-nameOfFile=$1
-urlToGoTo=$2
-echo '#!/bin/bash' > $nameOfFile
-echo 'chrome '$2 >> $nameOfFile
-echo '' >> $nameOfFile
-chmod +x $nameOfFile
-link $nameOfFile $HOME_BIN/$nameOfFile
+command_name=$1
+url=$2
+echo '#!/bin/bash' > $command_name
+echo 'chrome '$url >> $command_name
+echo '' >> $command_name
+chmod +x $command_name
+link $command_name $MODULAR_BASHING_BIN_DIR/$command_name

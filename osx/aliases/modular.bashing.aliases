@@ -1,0 +1,10 @@
+#!/bin/bash
+
+alias modular.bashing.dir="cd $MODULAR_BASHING_DIR"
+alias modular.bashing.aliases.dir="cd $MODULAR_BASHING_DIR/aliases"
+alias modular.bashing.bin.dir="cd $MODULAR_BASHING_DIR/bin"
+alias modular.bashing.envvars.dir="cd $MODULAR_BASHING_DIR/envvars"
+
+alias my.aliases.dir="cd $MODULAR_BASHING_DIR/aliases"
+alias my.bin.dir="cd $MODULAR_BASHING_DIR/bin"
+alias my.envvars.dir="cd $MODULAR_BASHING_DIR/envvars"
