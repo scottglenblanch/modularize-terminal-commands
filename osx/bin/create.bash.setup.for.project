@@ -1,0 +1,87 @@
+#!/bin/bash
+
+PROJECT_NAME=""
+
+has_valid_params() {
+	if [ "$1" == "" ];
+	then
+		echo "false"
+	else
+		echo "true"
+	fi
+}
+
+set_variables() {
+	PROJECT_NAME="$1"
+	echo "project name set to $PROJECT_NAME"
+}
+
+get_bash_setup_dir() {
+	echo "${PROJECT_NAME}.bash.stuff"
+}
+
+get_aliases_dir_path() {
+	echo "$(get_bash_setup_dir)/aliases"
+}
+
+get_bin_dir_path() {
+	echo "$(get_bash_setup_dir)/aliases"
+}
+
+get_envvars_dir_path() {
+	echo "$(get_bash_setup_dir)/envvars"
+}
+
+create_aliases_dir() {
+	mkdir -p "$(get_aliases_dir_path)"
+}
+
+create_bin_dir() {
+	mkdir -p "$(get_bin_dir_path)"
+}
+
+create_envvars_dir() {
+	mkdir -p "$(get_envvars_dir_path)"
+}
+
+create_aliases() {
+	echo "Creating aliases for project $PROJECT_NAME"
+
+	create_aliases_dir
+}
+
+create_bin() {
+	echo "Creating bin for project $PROJECT_NAME"
+	create_bin_dir
+}
+
+create_envvars() {
+	echo "Creating envvars/environment variables for project $PROJECT_NAME"
+	create_envvars_dir
+}
+
+create_bash_setup() {
+	create_aliases
+	create_bin
+	create_envvars
+}
+
+run_create_bash_setup_for_dir() {
+	set_variables "$1"
+	create_bash_setup
+}
+
+handle_invalid_params() {
+	echo "Need 1st parameter, which will be name of project"
+}
+
+run_script() {
+	if [ "$(has_valid_params)" == "true" ];
+	then
+		run_create_bash_setup_for_dir "$1"
+	else
+		handle_invalid_params
+	fi
+}
+
+run_script
