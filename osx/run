@@ -35,6 +35,10 @@ set_needed_variables() {
 	set_home_dir
 }
 
+create_modular_bashing_directory() {
+	mkdir -p "$MODULE_BASHING_DIR"
+}
+
 get_setup_dir() {
 	echo "$(get_script_dir)/setup"
 }
@@ -48,28 +52,25 @@ run_setup_aliases() {
 }
 
 run_setup_bin() {
-	source "$(get_setup_dir)/setup.bin"
+	source $(get_setup_dir)/setup.bin "$SCRIPT_DIR" "$MODULE_BASHING_DIR" "$HOME_DIR"
 }
 
 run_setup_envvars() {
-	source "$(get_setup_dir)/setup.envvars"
+	source "$(get_setup_dir)/setup.envvars" "$SCRIPT_DIR" "$MODULE_BASHING_DIR" "$HOME_DIR"
 }
 
 run_setup_wiring() {
-	source "$(get_setup_dir)/setup.wiring"
+	source "$(get_setup_dir)/setup.wiring" "$SCRIPT_DIR" "$MODULE_BASHING_DIR" "$HOME_DIR"
 }
 
+setup() {
+	run_setup_aliases
+	run_setup_bin
+	run_setup_envvars
+	run_setup_wiring
+}
 
 show_initial_message
-
 set_needed_variables
-
-run_setup_aliases
-#run_setup_bin
-#run_setup_envvars
-#run_setup_wiring
-
-
-
-
-
+create_modular_bashing_directory
+setup

@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "Setting up Aliases"
 
 SCRIPT_DIR=""
 MODULE_BASHING_DIR=""
@@ -34,10 +33,10 @@ handle_invalid_variables() {
 }
 
 run_setup_aliases() {
-	echo "run setup aliases"
+	echo "Setting up Aliases"
+	cp -R $SCRIPT_DIR/aliases $MODULE_BASHING_DIR
 
 }
-
 
 
 set_variables() {
