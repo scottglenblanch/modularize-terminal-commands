@@ -87,7 +87,7 @@ handle_invalid_params() {
 }
 
 run_script() {
-	if [ "$(has_valid_params)" == "true" ];
+	if [ "$(has_valid_params "$1")" == "true" ];
 	then
 		run_create_bash_setup_for_dir "$1"
 	else
@@ -95,4 +95,4 @@ run_script() {
 	fi
 }
 
-run_script
+run_script "$1"
