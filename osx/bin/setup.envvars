@@ -1,5 +1,28 @@
 #!/bin/bash
-for scriptName in $(ls $HOME/envvars)
-do
-  source $HOME/envvars/$scriptName
-done
+
+trim_string() {
+	to_trim=$1
+	echo "$to_trim" | xargs
+}
+
+get_envvars_path() {
+	echo -e "$MODULAR_BASHING_DIR/envvars"
+}
+
+get_envvar_filenames() {
+	echo -e $(ls "$(get_envvars_path)")
+}
+
+load_envvar_file() {
+	envvar_file="$(trim_string "$1")"
+	source "$(get_envvars_path)/$envvar_file"
+}
+
+run_script() {
+	for envvar_file in $(get_envvar_filenames)
+	do
+		load_envvar_file $envvar_file
+	done
+}
+
+run_script

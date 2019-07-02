@@ -1,42 +1,70 @@
 #!/bin/bash
 
 SCRIPT_DIR=""
-MODULE_BASHING_DIR=""
+MODULAR_BASHING_DIR=""
 HOME_DIR=""
 
-set_script_dir() {
-	get_script_dir() {
-		SOURCE="${BASH_SOURCE[0]}"
-		while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
-			DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-			SOURCE="$(readlink "$SOURCE")"
-			[[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
-		done
-		echo "$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-	}
+get_script_dir() {
+	SOURCE="${BASH_SOURCE[0]}"
+	while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+		DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+		SOURCE="$(readlink "$SOURCE")"
+		[[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+	done
+	echo "$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+}
 
+format_path_with_tilde_in_front() {
+	path="$1"
+
+	echo ${path/#\~/$HOME}
+}
+
+format_path_with_period_in_front() {
+	path="$1"
+
+	echo ${path/#\./$(pwd)}
+}
+
+format_path() {
+	path="$1"
+	path="$(format_path_with_tilde_in_front "$path")"
+	path="$(format_path_with_period_in_front "$path")"
+
+	echo "$path"
+}
+
+set_home_dir() {
+	HOME_DIR="$(format_path "~")"
+
+	echo "HOME_DIR now set to $HOME_DIR"
+}
+
+get_modular_bashing_directory_from_input() {
+	input="$(echo $(bash -c 'read -e -p "Path for modular bashing directory?: " input; echo "$input"'))"
+
+	echo "$(format_path "$input")"
+}
+
+set_modular_bashing_dir() {
+	MODULAR_BASHING_DIR="$(get_modular_bashing_directory_from_input)"
+	echo "MODULAR_BASHING_DIR now set to $MODULAR_BASHING_DIR"
+}
+
+set_script_dir() {
 	SCRIPT_DIR="$(get_script_dir)"
 	echo "SCRIPT_DIR now set to $SCRIPT_DIR"
 }
 
-set_module_bashing_dir() {
-	MODULE_BASHING_DIR=$(echo $(bash -c 'read -e -p "Where you want the module bashing directory to be? Make sure to use absolute path: " MODULE_BASHING_DIR; echo "$MODULE_BASHING_DIR"'))
-	echo "MODULE_BASHING_DIR now set to $MODULE_BASHING_DIR"
-}
-
-set_home_dir() {
-	HOME_DIR=$(echo $(bash -c 'read -e -p "Where is your home directory? Make sure to use absolute path. Do not include ~: " HOME_DIR; echo "$HOME_DIR"'))
-	echo "HOME_DIR now set to $HOME_DIR"
-}
 
 set_needed_variables() {
 	set_script_dir
-	set_module_bashing_dir
+	set_modular_bashing_dir
 	set_home_dir
 }
 
 create_modular_bashing_directory() {
-	mkdir -p "$MODULE_BASHING_DIR"
+	mkdir -p "$MODULAR_BASHING_DIR"
 }
 
 get_setup_dir() {
@@ -48,19 +76,19 @@ show_initial_message() {
 }
 
 run_setup_aliases() {
-	source $(get_setup_dir)/setup.aliases "$SCRIPT_DIR" "$MODULE_BASHING_DIR" "$HOME_DIR"
+	source $(get_setup_dir)/setup.aliases "$SCRIPT_DIR" "$MODULAR_BASHING_DIR" "$HOME_DIR"
 }
 
 run_setup_bin() {
-	source $(get_setup_dir)/setup.bin "$SCRIPT_DIR" "$MODULE_BASHING_DIR" "$HOME_DIR"
+	source $(get_setup_dir)/setup.bin "$SCRIPT_DIR" "$MODULAR_BASHING_DIR" "$HOME_DIR"
 }
 
 run_setup_envvars() {
-	source "$(get_setup_dir)/setup.envvars" "$SCRIPT_DIR" "$MODULE_BASHING_DIR" "$HOME_DIR"
+	source "$(get_setup_dir)/setup.envvars" "$SCRIPT_DIR" "$MODULAR_BASHING_DIR" "$HOME_DIR"
 }
 
 run_setup_wiring() {
-	source "$(get_setup_dir)/setup.wiring" "$SCRIPT_DIR" "$MODULE_BASHING_DIR" "$HOME_DIR"
+	source "$(get_setup_dir)/setup.wiring" "$SCRIPT_DIR" "$MODULAR_BASHING_DIR" "$HOME_DIR"
 }
 
 setup() {
@@ -70,7 +98,11 @@ setup() {
 	run_setup_wiring
 }
 
-show_initial_message
-set_needed_variables
-create_modular_bashing_directory
-setup
+run_script() {
+	show_initial_message
+	set_needed_variables
+	create_modular_bashing_directory
+	setup
+}
+
+run_script

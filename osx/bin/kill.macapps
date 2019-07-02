@@ -1,8 +1,8 @@
 #!/bin/bash
 IFS=$'\n'
-for appName in $(ls /Applications)
+for app_name in $(ls /Applications)
 do
-  echo 'Killing '$appName
-  osascript -e 'quit app "'$appName'"'
+  echo 'Killing '$app_name
+  osascript -e 'quit app "'$app_name'"'
 done
 

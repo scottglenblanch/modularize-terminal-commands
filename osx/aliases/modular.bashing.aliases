@@ -1,8 +1,10 @@
 #!/bin/bash
-#basic navigation
-alias home.dir="cd $HOME_BIN"
-alias home.aliases.dir="cd $HOME_ALIASES"
-alias desktop='cd $HOME/Desktop'
-alias downloads='cd $HOME/Downloads'
-alias library='cd $HOME/Library'
-alias re='exec "$SHELL"'
+
+alias modular.bashing.dir="cd $MODULAR_BASHING_DIR"
+alias modular.bashing.aliases.dir="cd $MODULAR_BASHING_DIR/aliases"
+alias modular.bashing.bin.dir="cd $MODULAR_BASHING_DIR/bin"
+alias modular.bashing.envvars.dir="cd $MODULAR_BASHING_DIR/envvars"
+
+alias my.aliases.dir="cd $MODULAR_BASHING_DIR/aliases"
+alias my.bin.dir="cd $MODULAR_BASHING_DIR/bin"
+alias my.envvars.dir="cd $MODULAR_BASHING_DIR/envvars"

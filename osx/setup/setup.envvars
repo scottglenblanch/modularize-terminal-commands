@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_DIR=""
-MODULE_BASHING_DIR=""
+MODULAR_BASHING_DIR=""
 HOME_DIR=""
 
 is_valid_variable() {
@@ -16,7 +16,7 @@ is_valid_variable() {
 
 has_valid_variables() {
 
-	for param in "$SCRIPT_DIR" "$MODULE_BASHING_DIR" "$HOME_DIR"
+	for param in "$SCRIPT_DIR" "$MODULAR_BASHING_DIR" "$HOME_DIR"
 	do
 		if [ "$(is_valid_variable "$param")" == "false" ];
 		then
@@ -28,20 +28,20 @@ has_valid_variables() {
 }
 
 handle_invalid_variables() {
-	echo -e "issue with parameters in setup.envvars\n\$1 is path $SCRIPT_DIR\n\$2 is path to $MODULE_BASHING_DIR\n\$3 is path to $HOME_DIR"
+	echo -e "issue with parameters in setup.envvars\n\$1 is path $SCRIPT_DIR\n\$2 is path to $MODULAR_BASHING_DIR\n\$3 is path to $HOME_DIR"
 	exit 1
 }
 
 run_setup_envvars() {
 	echo "Setting up Envvars/Environment Variables"
-	cp -R $SCRIPT_DIR/envvars $MODULE_BASHING_DIR
+	cp -R $SCRIPT_DIR/envvars $MODULAR_BASHING_DIR
 
 }
 
 
 set_variables() {
 	SCRIPT_DIR=$1
-	MODULE_BASHING_DIR=$2
+	MODULAR_BASHING_DIR=$2
 	HOME_DIR=$3
 }
 

@@ -1,4 +1,4 @@
 #!/bin/bash
-#to setup aliases
-source $HOME/bin/setup.aliases
-source $HOME/bin/setup.envvars
+
+source "$MODULAR_BASHING_DIR/bin/setup.aliases"
+source "$MODULAR_BASHING_DIR/bin/setup.envvars"
