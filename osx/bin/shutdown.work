@@ -1,0 +1,5 @@
+#!/bin/bash
+source $MODULAR_BASHING_DIR/bin/setup.shell
+kill.macapps
+sleep 2
+osascript -e 'tell application "System Events" to shut down'

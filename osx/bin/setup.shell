@@ -1,4 +1,4 @@
 #!/bin/bash
-
-source "$MODULAR_BASHING_DIR/bin/setup.aliases"
-source "$MODULAR_BASHING_DIR/bin/setup.envvars"
+source "$MODULAR_BASHING_BIN_DIR/setup.aliases"
+source "$MODULAR_BASHING_BIN_DIR/setup.envvars"
+source "$MODULAR_BASHING_BIN_DIR/setup.autocomplete"

@@ -1,6 +1,5 @@
 #!/bin/bash
-
-PROJECT_NAME=""
+project_name=""
 
 has_valid_params() {
 	if [ "$1" == "" ];
@@ -12,24 +11,125 @@ has_valid_params() {
 }
 
 set_variables() {
-	PROJECT_NAME="$1"
-	echo "project name set to $PROJECT_NAME"
+	project_name="$1"
+	echo "project name set to $project_name"
 }
 
 get_bash_setup_dir() {
-	echo "$(pwd)/${PROJECT_NAME}.bash.stuff"
-}
-
-get_aliases_dir_path() {
-	echo "$(get_bash_setup_dir)/aliases"
+	echo "$(pwd)/${project_name}-bash-scripts"
 }
 
 get_bin_dir_path() {
 	echo "$(get_bash_setup_dir)/aliases"
 }
 
+get_project_name_lower_case() {
+	echo "$project_name" | tr '[:upper:]' '[:lower:]'
+}
+
+get_project_name_upper_case() {
+	echo "$project_name" | tr '[:lower:]' '[:upper:]'
+}
+
+### Environment Variables
 get_envvars_dir_path() {
 	echo "$(get_bash_setup_dir)/envvars"
+}
+
+get_root_envvars_dir_path() {
+	echo "$MODULAR_BASHING_ENVVARS_DIR"
+}
+
+get_envvars_file_name() {
+	echo "$(get_project_name_lower_case).envvars"
+}
+
+get_envvars_file_path() {
+	echo "$(get_envvars_dir_path)/$(get_envvars_file_name)"
+}
+
+get_envvars_project_dir_variable() {
+	echo "\$$(get_project_name_upper_case)_DIR"
+}
+
+get_envvars_bash_dir_variable() {
+	echo "\$$(get_project_name_upper_case)_BASH_DIR"
+}
+
+get_envvars_bin_dir_variable() {
+	echo "\$$(get_project_name_upper_case)_BIN_DIR"
+}
+
+get_envvars_aliases_dir_variable() {
+	echo "\$$(get_project_name_upper_case)_ALIASES_DIR"
+}
+
+get_envvars_envvars_dir_variable() {
+	echo "\$$(get_project_name_upper_case)_ENVVARS_DIR"
+}
+
+create_envvars_dir() {
+	mkdir -p "$(get_envvars_dir_path)"
+}
+
+create_envvars_file() {
+	envvars_file_path="$(get_envvars_file_path)"
+	project_dir_var="$(get_envvars_project_dir_variable)"
+	bash_dir_var="$(get_envvars_bash_dir_variable)"
+	aliases_dir_var="$(get_envvars_aliases_dir_variable)"
+	bin_dir_var="$(get_envvars_bin_dir_variable)"
+	envvars_dir_var="$(get_envvars_bin_dir_variable)"
+
+	touch "$envvars_file_path"
+	echo "#!/bin/bash" >> "$envvars_file_path"
+	echo "export ${project_dir_var:1}=\"$(pwd)\"" >> "$envvars_file_path"
+	echo "export ${bash_dir_var:1}=\"$(get_bash_setup_dir)\"" >> "$envvars_file_path"
+	echo "export ${aliases_dir_var:1}=\"$(get_aliases_dir_path)\"" >> "$envvars_file_path"
+	echo "export ${bin_dir_var:1}=\"$(get_bin_dir_path)\"" >> "$envvars_file_path"
+	echo "export ${envvars_dir_var:1}=\"$(get_envvars_dir_path)\"" >> "$envvars_file_path"
+}
+
+chmod_envvars_file() {
+	chmod +x "$(get_envvars_file_path)"
+}
+
+link_envvars_file() {
+	ln "$(get_envvars_file_path)" "$(get_root_envvars_dir_path)/$(get_envvars_file_name)"
+}
+
+create_envvars() {
+	show_create_envvars_message
+	create_envvars_dir
+	create_envvars_file
+	chmod_envvars_file
+	link_envvars_file
+}
+###
+
+### ALIASES
+
+get_aliases_dir_path() {
+	echo "$(get_bash_setup_dir)/aliases"
+}
+
+get_root_aliases_dir_path() {
+	echo "$MODULAR_BASHING_ALIASES_DIR"
+}
+
+get_aliases_file_name() {
+	echo "${project_name}.aliases"
+}
+
+get_aliases_site_file_name() {
+	echo "${project_name}.aliases.sites"
+}
+
+get_aliases_file_path() {
+	echo "$(get_aliases_dir_path)/$(get_aliases_file_name)"
+}
+
+get_aliases_sites_file_path() {
+	echo "$(get_aliases_dir_path)/$(get_aliases_site_file_name)"
 }
 
 create_aliases_dir() {
@@ -40,35 +140,58 @@ create_bin_dir() {
 	mkdir -p "$(get_bin_dir_path)"
 }
 
-create_envvars_dir() {
-	mkdir -p "$(get_envvars_dir_path)"
+create_aliases_main_file() {
+	files_path="$(get_aliases_file_path)"
+	touch "$files_path"
+	echo "#!/bin/bash" >> "$files_path"
+	echo "alias ${project_name}.dir='cd \"$(get_envvars_project_dir_variable)\"'" >> "$files_path"
+	echo "alias ${project_name}.bash.dir='cd \"$(get_envvars_bash_dir_variable)\"'" >> "$files_path"
+	echo "alias ${project_name}.bin.dir='cd \"$(get_envvars_bin_dir_variable)\"'" >> "$files_path"
+	echo "alias ${project_name}.aliases.dir='cd \"$(get_envvars_aliases_dir_variable)\"'" >> "$files_path"
+	echo "alias ${project_name}.envvars.dir='cd \"$(get_envvars_envvars_dir_variable)\"'" >> "$files_path"
 }
 
-show_create_aliases_message() {
-	echo "Creating aliases for project $PROJECT_NAME"
+create_aliases_sites_file() {
+	files_path="$(get_aliases_sites_file_path)"
+	touch "$files_path"
+	echo "#!/bin/bash" >> "$files_path"
+
 }
 
-show_create_bin_message() {
-	echo "Creating bin for project $PROJECT_NAME"
+create_aliases_files() {
+	create_aliases_main_file
+	create_aliases_sites_file
 }
 
-show_create_envvars_message() {
-	echo "Creating envvars/environment variables for project $PROJECT_NAME"
+link_aliases_files() {
+	ln "$(get_aliases_file_path)" "$(get_root_aliases_dir_path)/$(get_aliases_file_name)"
+	ln "$(get_aliases_sites_file_path)" "$(get_root_aliases_dir_path)/$(get_aliases_site_file_name)"
 }
 
 create_aliases() {
 	show_create_aliases_message
 	create_aliases_dir
+	create_aliases_files
+	link_aliases_files
+}
+
+###
+
+show_create_aliases_message() {
+	echo "Creating aliases for project $project_name"
+}
+
+show_create_bin_message() {
+	echo "Creating bin for project $project_name"
+}
+
+show_create_envvars_message() {
+	echo "Creating envvars/environment variables for project $project_name"
 }
 
 create_bin() {
 	show_create_bin_message
 	create_bin_dir
-}
-
-create_envvars() {
-	show_create_envvars_message
-	create_envvars_dir
 }
 
 create_bash_setup() {

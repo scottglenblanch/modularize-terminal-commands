@@ -8,6 +8,6 @@ fi
 command_name=$1
 
 rm ./$command_name
-rm $HOME/bin/$command_name
+rm $MODULAR_BASHING_BIN_DIR/$command_name
 
 echo 'deleted command '$command_name
