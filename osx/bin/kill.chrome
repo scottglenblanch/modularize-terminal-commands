@@ -1,2 +1,0 @@
-#!/bin/bash
-osascript -e 'quit app "Google Chrome.app"'

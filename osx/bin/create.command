@@ -1,5 +1,5 @@
 #!/bin/bash
-source $MODULAR_BASHING_DIR/bin/setup.shell
+source "$MODULAR_BASHING_BIN_DIR/setup.shell"
 
 has_first_param() {
   if [ "$1" == "" ];
@@ -33,7 +33,8 @@ handle_has_valid_params() {
   command_name="$1"
   touch "$command_name"
   echo "#!/bin/bash" >> "$command_name"
-  echo "source \$MODULAR_BASHING_DIR/bin/setup.shell" >> "$command_name"
+  echo "source \$MODULAR_BASHING_BIN_DIR/setup.shell" >> "$command_name"
+  echo "shopt -s expand_aliases" >> "$command_name"
   chmod +x "$command_name"
   ln "$command_name" "$MODULAR_BASHING_BIN_DIR/$command_name"
   editor "$command_name"

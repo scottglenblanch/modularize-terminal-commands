@@ -20,7 +20,7 @@ get_bash_setup_dir() {
 }
 
 get_bin_dir_path() {
-	echo "$(get_bash_setup_dir)/aliases"
+	echo "$(get_bash_setup_dir)/bin"
 }
 
 get_project_name_lower_case() {
@@ -78,7 +78,7 @@ create_envvars_file() {
 	bash_dir_var="$(get_envvars_bash_dir_variable)"
 	aliases_dir_var="$(get_envvars_aliases_dir_variable)"
 	bin_dir_var="$(get_envvars_bin_dir_variable)"
-	envvars_dir_var="$(get_envvars_bin_dir_variable)"
+	envvars_dir_var="$(get_envvars_envvars_dir_variable)"
 
 	touch "$envvars_file_path"
 	echo "#!/bin/bash" >> "$envvars_file_path"

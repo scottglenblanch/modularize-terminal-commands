@@ -1,7 +1,0 @@
-#!/bin/bash
-IFS=$'\n'
-for appName in $(ls /Applications | grep -v "iTerm" | grep -v "Spectacle")
-do
-  echo 'Killing '$appName
-  osascript -e 'quit app "'$appName'"'
-done
