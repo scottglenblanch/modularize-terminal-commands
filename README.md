@@ -7,7 +7,7 @@ Creates commands and aliases to help productivity.
 ## Support
 
 ### Script Interpreters
-Current support is for bash and zsh.
+Current support is for bash (Bourne-again shell).
 
 ### Operating Systems
 Current version supports MacOsX. Future versions will support popular Linux distributions and Windows.
