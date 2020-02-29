@@ -1,0 +1,3 @@
+@ECHO OFF
+PAUSE
+START chrome.exe
