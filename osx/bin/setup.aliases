@@ -1,9 +1,0 @@
-#!/bin/bash
-get_aliases_filenames() {
-	echo -e $(ls "$MODULAR_BASHING_ALIASES_DIR")
-}
-
-for aliases_file in $(get_aliases_filenames)
-do
-	source "$MODULAR_BASHING_ALIASES_DIR/$aliases_file"
-done

@@ -1,0 +1,8 @@
+#!/bin/bash
+export MY_ROOT_ALIASES_DIR="${MY_ROOT_BASH_DIR}/aliases"
+export MY_ROOT_AUTOCOMPLETE_DIR="${MY_ROOT_BASH_DIR}/autocomplete"
+export MY_ROOT_BIN_DIR="${MY_ROOT_BASH_DIR}/bin"
+export MY_ROOT_ENVVARS_DIR="${MY_ROOT_BASH_DIR}/envvars"
+export MY_ROOT_TEMPLATES_DIR="${MY_ROOT_BASH_DIR}/templates"
+
+export PATH="${MY_ROOT_BIN_DIR}:${PATH}"

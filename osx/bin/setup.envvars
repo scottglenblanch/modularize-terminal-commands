@@ -1,9 +1,0 @@
-#!/bin/bash
-get_envvar_filenames() {
-	echo -e $(ls "$MODULAR_BASHING_ENVVARS_DIR")
-}
-
-for envvar_file in $(get_envvar_filenames)
-do
-	source "$MODULAR_BASHING_ENVVARS_DIR/$envvar_file"
-done

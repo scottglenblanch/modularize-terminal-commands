@@ -1,0 +1,11 @@
+#!/bin/bash
+INPUT="$@"
+
+if [ -z "${INPUT}" ];
+then
+    read -p "Enter search term: " SEARCH_TERM
+else
+    SEARCH_TERM="${INPUT}"
+fi
+
+chrome "http://www.google.com/search?q=${SEARCH_TERM}"

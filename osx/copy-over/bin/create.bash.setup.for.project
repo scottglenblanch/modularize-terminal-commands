@@ -1,0 +1,180 @@
+#!/bin/bash
+#=============================================
+# ${MY_ROOT_BIN_DIR} is required global
+# ${MY_ROOT_ENVVARS_DIR} is required global
+# ${MY_ROOT_ALIASES_DIR} is required global
+# ${MY_ROOT_AUTOCOMPLETE_DIR} is required global
+# ${MY_ROOT_TEMPLATES_DIR} is required global
+# $1 (first parameter) is required
+#=============================================
+source ~/.bash_profile
+
+PROJECT_NAME="${1}"
+
+# check for valid input
+if [ -z "${PROJECT_NAME}" ]
+then
+	echo "Need a project name for input"
+	exit 1
+fi
+
+PROJECT_NAME_UPPERCASE="$(echo "${PROJECT_NAME}" | tr [a-z] [A-Z])"
+PROJECT_NAME_LOWERCASE="$(echo "${PROJECT_NAME}" | tr [A-Z] [a-z])"
+
+#=============================================
+# CREATE DIRECTORIES
+#=============================================
+
+# create string variable working dir
+PROJECT_DIR="$(pwd)"
+# create string variable for bash dir
+BASH_DIR="${PROJECT_DIR}/${PROJECT_NAME_LOWERCASE}-bash-scripts"
+# create string variable for bin dir
+BIN_DIR="${BASH_DIR}/bin"
+# create string variable for aliases dir
+ALIASES_DIR="${BASH_DIR}/aliases"
+# create string variable for envvars dir
+ENVVARS_DIR="${BASH_DIR}/envvars"
+# create string variable for autocomplete dir
+AUTOCOMPLETE_DIR="${BASH_DIR}/autocomplete"
+
+
+echo "creating bash dir"
+mkdir -p "${BASH_DIR}"
+echo "created bash dir at ${BASH_DIR}"
+
+echo "creating bin dir"
+mkdir -p "${BIN_DIR}"
+echo "created bin dir at ${BIN_DIR}"
+
+echo "creating aliases dir"
+mkdir -p "${ALIASES_DIR}"
+echo "created aliases dir at ${ALIASES_DIR}"
+
+echo "creating envvars dir"
+mkdir -p "${ENVVARS_DIR}"
+echo "created envvars dir at ${ENVVARS_DIR}"
+
+echo "creating autocomplete dir"
+mkdir -p "${AUTOCOMPLETE_DIR}"
+echo "created autocomplete dir at ${AUTOCOMPLETE_DIR}"
+
+#=============================================
+# FUNCTIONS TO CREATE FILES
+#=============================================
+
+get_rendered_template_file_content() {
+	TEMPLATE_FILE_ABSOLUTE_PATH="${1}"
+	echo "$(cat "${TEMPLATE_FILE_ABSOLUTE_PATH}" \
+	    | sed 's#%PROJECT_NAME_UPPERCASE%#'${PROJECT_NAME_UPPERCASE}'#g' \
+	    | sed 's#%PROJECT_NAME_LOWERCASE%#'${PROJECT_NAME_LOWERCASE}'#g' \
+	    | sed 's#%PROJECT_DIR%#'${PROJECT_DIR}'#g' \
+	)"
+}
+
+create_file() {
+	FILE_NAME="${1}"
+	LOCAL_DIR="${2}"
+	TEMPLATE_FILE_ABSOLUTE_PATH="${3}"
+	FILE_LOCAL_PATH="${LOCAL_DIR}/${FILE_NAME}"
+
+	touch "${FILE_LOCAL_PATH}"
+	echo "$(get_rendered_template_file_content "${TEMPLATE_FILE_ABSOLUTE_PATH}")" \
+		>> "${FILE_LOCAL_PATH}"
+	echo '' >> "${FILE_LOCAL_PATH}"
+}
+
+make_file_executable() {
+	FILE_NAME="${1}"
+	LOCAL_DIR="${2}"
+	FILE_LOCAL_PATH="${LOCAL_DIR}/${FILE_NAME}"
+
+	chmod +x "${FILE_LOCAL_PATH}"
+}
+
+link_file() {
+	FILE_NAME="${1}"
+	LOCAL_DIR="${2}"
+	GLOBAL_DIR="${3}"
+
+	FILE_LOCAL_PATH="${LOCAL_DIR}/${FILE_NAME}"
+	FILE_GLOBAL_PATH="${GLOBAL_DIR}/${FILE_NAME}"
+
+	ln "${FILE_LOCAL_PATH}" "${FILE_GLOBAL_PATH}"
+}
+
+create_executable_and_linked_file() {
+	FILE_NAME="${1}"
+	LOCAL_DIR="${2}"
+	GLOBAL_DIR="${3}"
+  TEMPLATE_FILE_ABSOLUTE_PATH="${4}"
+
+	create_file "${FILE_NAME}" "${LOCAL_DIR}" "${TEMPLATE_FILE_ABSOLUTE_PATH}"
+	make_file_executable "${FILE_NAME}" "${LOCAL_DIR}"
+	link_file \
+		"${FILE_NAME}" "${LOCAL_DIR}" "${GLOBAL_DIR}"
+}
+
+
+#=============================================
+# CREATE ALIAS FILE
+#=============================================
+ALIAS_FILE="${PROJECT_NAME_LOWERCASE}.aliases"
+ALIAS_TEMPLATE_ABSOLUTE_PATH="${MY_ROOT_TEMPLATES_DIR}/aliases.template"
+
+create_executable_and_linked_file \
+	"${ALIAS_FILE}" \
+	"${ALIASES_DIR}" \
+	"${MY_ROOT_ALIASES_DIR}" \
+	"${ALIAS_TEMPLATE_ABSOLUTE_PATH}"
+
+#=============================================
+# CREATE ALIAS SITES FILE
+#=============================================
+
+ALIAS_SITE_FILE="${PROJECT_NAME_LOWERCASE}.aliases.sites"
+ALIAS_SITES_TEMPLATE_ABSOLUTE_PATH="${MY_ROOT_TEMPLATES_DIR}/aliases.sites.template"
+
+create_executable_and_linked_file \
+	"${ALIAS_SITE_FILE}" \
+	"${ALIASES_DIR}" \
+	"${MY_ROOT_ALIASES_DIR}" \
+	"${ALIAS_SITES_TEMPLATE_ABSOLUTE_PATH}"
+
+
+#=============================================
+# CREATE AUTOCOMPLETE FILE
+#=============================================
+AUTOCOMPLETE_FILE="${PROJECT_NAME_LOWERCASE}.autocomplete"
+AUTOCOMPLETE_TEMPLATE_ABSOLUTE_PATH="${MY_ROOT_TEMPLATES_DIR}/autocomplete.template"
+
+create_executable_and_linked_file \
+	"${AUTOCOMPLETE_FILE}" \
+	"${AUTOCOMPLETE_DIR}" \
+	"${MY_ROOT_AUTOCOMPLETE_DIR}" \
+	"${AUTOCOMPLETE_TEMPLATE_ABSOLUTE_PATH}"
+
+#=============================================
+# CREATE {project}.create.command FILE
+#=============================================
+PROJECT_CREATE_COMMAND_FILE_NAME="${PROJECT_NAME_LOWERCASE}.create.command"
+PROJECT_CREATE_COMMAND_TEMPLATE_ABSOLUTE_PATH="${MY_ROOT_TEMPLATES_DIR}/create.command.template"
+
+create_executable_and_linked_file \
+	"${PROJECT_CREATE_COMMAND_FILE_NAME}" \
+	"${BIN_DIR}" \
+	"${MY_ROOT_BIN_DIR}" \
+	"${PROJECT_CREATE_COMMAND_TEMPLATE_ABSOLUTE_PATH}"
+
+#=============================================
+# CREATE ENVVARS FILE
+#=============================================
+
+ENVVARS_FILE_NAME="${PROJECT_NAME_LOWERCASE}.envvars"
+ENVVARS_TEMPLATE_ABSOLUTE_PATH="${MY_ROOT_TEMPLATES_DIR}/envvars.template"
+
+create_executable_and_linked_file \
+	"${ENVVARS_FILE_NAME}" \
+	"${ENVVARS_DIR}" \
+	"${MY_ROOT_ENVVARS_DIR}" \
+	"${ENVVARS_TEMPLATE_ABSOLUTE_PATH}"

@@ -1,8 +1,0 @@
-#!/bin/bash
-source $MODULAR_BASHING_DIR/bin/setup.shell
-kill.macapps
-kill.macapp Spectacle
-kill.macapp Hammerspoon
-sleep 2
-osascript -e 'tell application "System Events" to shut down'
-kill.iterm

@@ -1,6 +1,0 @@
-#!/bin/bash
-
-alias desktop='cd $HOME/Desktop'
-alias downloads='cd $HOME/Downloads'
-alias library='cd $HOME/Library'
-alias re='reload.shell'

@@ -1,8 +1,0 @@
-#!/bin/bash
-if [ "$1" != "" ]
-then
-  site="$1"
-else
-  site="https://www.google.com"
-fi
-open -na "Google Chrome" --args --incognito "$site"

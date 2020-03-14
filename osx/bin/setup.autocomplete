@@ -1,9 +1,0 @@
-#!/bin/bash
-get_autocomplete_filenames() {
-	echo -e $(ls "$MODULAR_BASHING_AUTOCOMPLETE_DIR")
-}
-
-for autocomplete_file in $(get_autocomplete_filenames)
-do
-	source "$MODULAR_BASHING_AUTOCOMPLETE_DIR/$autocomplete_file"
-done
