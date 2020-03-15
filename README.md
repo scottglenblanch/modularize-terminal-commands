@@ -24,11 +24,20 @@ chmod -R +x ./modular-bashing/osx
 ./modular-bashing/osx/initialize
 ```
 
-Input the absolute path where you want the root bash directory to be.
-This will also be saved as an environment variable as $MY_ROOT_BASH_DIR'
+The initialize script will ask where you want the root bash directory to be.
+
+Input this using the absolute path. (As of right now it won't work with the ~
+for $HOME path. Fixes on this underway.)
+
+The absolute path will be saved as an environment variable as $MY_ROOT_BASH_DIR'
 in ~/.bashrc.
 
-Make sure when your terminal opens that it runs ~/.bashrc. 
+After running the command mentioned above run
+```sh
+source ~/.bashrc
+```
+
+For future use verify that your terminal runs ~/.bashrc.
 
 #### Linux:
 
