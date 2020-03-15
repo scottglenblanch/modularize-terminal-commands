@@ -38,7 +38,7 @@ After running the command mentioned above run
 source ~/.bashrc
 ```
 
-For future use verify that your terminal runs ~/.bashrc.
+Also verity that your terminal runs ~/.bashrc on startup. The file ~/.bashrc needs to run in order to hook everything up. 
 
 #### Linux:
 
