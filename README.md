@@ -22,7 +22,7 @@ Current version supports MacOsX. Future versions will support popular Linux dist
 ```sh
 git clone git@github.com:scottglenblanch/project-based-bashing.git
 chmod -R +x ./project-based-bashing/osx  
-./modular-bashing/osx/initialize
+./project-based-bashing/osx/initialize
 ```
 
 The initialize script will ask where you want the root bash directory to be.
