@@ -63,7 +63,7 @@ Scott Blanch – [@scottglenblanch](https://twitter.com/scottglenblanch) – sco
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
 
-[https://github.com/scottglenblanch/initialize-base-scripts](https://github.com/scottglenblanch/)
+[https://github.com/scottglenblanch/project-based-bashing](https://github.com/scottglenblanch/)
 
 ## Contributing
 
