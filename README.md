@@ -3,9 +3,9 @@ Aides in creating and encapsulating those bash scripts per project. Bash scripts
 as well as in global bash directory, aka '$MY_ROOT_BASH_DIR'.
 
 ## Overview
-Scripts generated wit this too will be nested within the project folder as well
+Scripts generated will be nested within the project folder as well
 as in the '$MY_ROOT_BASH_DIR' bash scripts folder. The location of
-'$MY_ROOT_BASH_DIR' is determined when you install this.
+'$MY_ROOT_BASH_DIR' is determined during installation.
 
 ## Support
 
