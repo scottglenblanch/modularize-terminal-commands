@@ -1,7 +1,17 @@
 #!/bin/bash
 
+CUR_DIR="$(pwd)"
 SCRIPT_PATH_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-MY_ROOT_BASH_DIR="${HOME}/test-root-dir"
+echo "What is absolute path you want these bash scripts in? Default is current location at ${CUR_DIR}"
+read USER_INPUT
+
+if [ -z "${USER_INPUT}" ]
+then
+  MY_ROOT_BASH_DIR="${CUR_DIR}"
+else
+  MY_ROOT_BASH_DIR="${USER_INPUT}"
+fi
+
 # =======================================
 # copy over bash scripts to ROOT_BASH_DIR
 # =======================================
