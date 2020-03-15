@@ -1,8 +1,10 @@
-# Initialize Bash Scripts
+# Modular Bashing
+Aides in creating and encapsulating those bash scripts per project.
 
-Creates commands and aliases to help productivity.
-
-
+## Overview
+Scripts generated wit this too will be nested within the project folder as well
+as in the '$MY_ROOT_BASH_DIR' bash scripts folder. The location of
+'$MY_ROOT_BASH_DIR' is determined when you install this.
 
 ## Support
 
@@ -19,8 +21,14 @@ Current version supports MacOsX. Future versions will support popular Linux dist
 ```sh
 git clone git@github.com:scottglenblanch/setup-bash.git
 chmod -R +x ./modular-bashing/osx  
-./modular-bashing/osx/run
+./modular-bashing/osx/initialize
 ```
+
+Input the absolute path where you want the root bash directory to be.
+This will also be saved as an environment variable as $MY_ROOT_BASH_DIR'
+in ~/.bashrc.
+
+Make sure when your terminal opens that it runs ~/.bashrc. 
 
 #### Linux:
 
@@ -34,7 +42,7 @@ Future Todo
 
 Commands
 
-* Added in near future
+*
 
 ## Release History
 * 0.0.1
@@ -57,4 +65,4 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 5. Create a new Pull Request
 
 ## Special Thanks
-Special Thanks to [@wcspcbmt](https://github.com/wcspcbmt) for teaching me bash. My eyes have been opened to the power of the terminal. 
+Special Thanks to [@wcspcbmt](https://github.com/wcspcbmt) for teaching me bash. My eyes have been opened to the power of the terminal.
