@@ -52,7 +52,17 @@ Future Todo
 
 Commands
 
-*
+* create.bash.setup.for.project
+* delete.bash.setup.for.project
+* create.global.command
+* create.command
+* <project name>.create.command 
+* trash
+* take.out.trash
+* trash.dumpster.diving
+* editor
+* start.day
+* end.day
 
 ## Release History
 * 0.0.1
