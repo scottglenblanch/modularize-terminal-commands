@@ -1,5 +1,6 @@
-# Modular Bashing
-Aides in creating and encapsulating those bash scripts per project.
+# Project Based Bashing
+Aides in creating and encapsulating those bash scripts per project. Bash scripts will be located in both the project directory
+as well as in global bash directory, aka '$MY_ROOT_BASH_DIR'.
 
 ## Overview
 Scripts generated wit this too will be nested within the project folder as well
