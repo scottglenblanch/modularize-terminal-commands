@@ -1,4 +1,8 @@
 #!/bin/bash
+#=============================================
+# ${MY_ROOT_BIN_DIR} is required global
+#=============================================
+
 source_files_in_directory() {
 	THE_DIR="${1}"
 
