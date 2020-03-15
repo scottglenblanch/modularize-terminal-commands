@@ -20,8 +20,8 @@ Current version supports MacOsX. Future versions will support popular Linux dist
 #### OS X
 
 ```sh
-git clone git@github.com:scottglenblanch/setup-bash.git
-chmod -R +x ./modular-bashing/osx  
+git clone git@github.com:scottglenblanch/project-based-bashing.git
+chmod -R +x ./project-based-bashing/osx  
 ./modular-bashing/osx/initialize
 ```
 
