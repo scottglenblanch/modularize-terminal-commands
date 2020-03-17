@@ -56,7 +56,7 @@ Commands
 * delete.bash.setup.for.project
 * create.global.command
 * create.command
-* <project name>.create.command 
+* {project name}.create.command 
 * trash
 * take.out.trash
 * trash.dumpster.diving
