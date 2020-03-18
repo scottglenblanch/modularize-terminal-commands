@@ -1,0 +1,48 @@
+#!/bin/bash
+#=============================================
+# ${MY_ROOT_BIN_DIR} is required global
+# ${MY_ROOT_ENVVARS_DIR} is required global
+# ${MY_ROOT_ALIASES_DIR} is required global
+# ${MY_ROOT_AUTOCOMPLETE_DIR} is required global
+# ${MY_ROOT_TEMPLATES_DIR} is required global
+# $1 (first parameter) is required
+#=============================================
+source ~/.bash_profile
+
+PROJECT_NAME="${1}"
+
+# check for valid input
+if [ -z "${PROJECT_NAME}" ]
+then
+	echo "Need a project name for input"
+	exit 1
+fi
+
+PROJECT_NAME_UPPERCASE="$(echo "${PROJECT_NAME}" | tr [a-z] [A-Z])"
+PROJECT_NAME_LOWERCASE="$(echo "${PROJECT_NAME}" | tr [A-Z] [a-z])"
+
+#=============================================
+# DELETE LOCAL
+#=============================================
+
+# create string variable working dir
+PROJECT_DIR=$(cut -d "=" -f2 <<< $(printenv | grep "${PROJECT_NAME_UPPERCASE}_DIR"))
+# create string variable for bash dir
+BASH_DIR="${PROJECT_DIR}/${PROJECT_NAME_LOWERCASE}-bash-scripts"
+
+trash "${BASH_DIR}"
+
+#=============================================
+# DELETE GLOBAL
+#=============================================
+GLOBAL_DIR_LIST=()
+GLOBAL_DIR_LIST+=("${MY_ROOT_BIN_DIR}")
+GLOBAL_DIR_LIST+=("${MY_ROOT_ENVVARS_DIR}")
+GLOBAL_DIR_LIST+=("${MY_ROOT_ALIASES_DIR}")
+GLOBAL_DIR_LIST+=("${MY_ROOT_AUTOCOMPLETE_DIR}")
+GLOBAL_DIR_LIST+=("${MY_ROOT_TEMPLATES_DIR}")
+
+for GLOBAL_DIR in ${GLOBAL_DIR_LIST[@]}
+do
+  trash "${GLOBAL_DIR}/${PROJECT_NAME_LOWERCASE}"*
+done

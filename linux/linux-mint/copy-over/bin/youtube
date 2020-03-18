@@ -1,0 +1,4 @@
+#!/bin/bash
+read -p "Enter youtube search term: " search_term
+
+browser.incognito "http://www.youtube.com/results?search_query=$search_term"

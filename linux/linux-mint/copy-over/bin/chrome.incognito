@@ -1,0 +1,10 @@
+#!/bin/bash
+INPUT=${1}
+
+if [ "${INPUT}" != "" ]
+then
+  URL_SITE="$1"
+else
+  URL_SITE='https://www.google.com'
+fi
+open -na "Google Chrome" --args --incognito "${URL_SITE}"

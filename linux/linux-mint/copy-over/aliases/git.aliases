@@ -1,0 +1,12 @@
+#!/bin/bash
+alias git.aliases='editor ${MY_ROOT_ALIASES_DIR}/git.aliases'
+
+alias ga='git add'
+alias gb='git branch'
+alias gc='git commit'
+alias gcb='git checkout -b'
+alias gco='git checkout $@'
+alias gl='git pull'
+alias gp='git push'
+alias gst='git status'
+alias gpsup='git.push.upstream'

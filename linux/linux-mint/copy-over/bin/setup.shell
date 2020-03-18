@@ -1,0 +1,34 @@
+#!/bin/bash
+#=============================================
+# ${MY_ROOT_BIN_DIR} is required global
+#=============================================
+
+source_files_in_directory() {
+	THE_DIR="${1}"
+
+	for THE_FILE in $(ls ${THE_DIR})
+	do
+		source "${THE_DIR}/${THE_FILE}"
+	done
+}
+
+set_envars() {
+	source_files_in_directory "${MY_ROOT_BASH_DIR}/envvars"
+}
+
+set_aliases() {
+	source_files_in_directory "${MY_ROOT_BASH_DIR}/aliases"
+}
+
+set_autocomplete() {
+	source_files_in_directory "${MY_ROOT_BASH_DIR}/autocomplete"
+}
+
+run() {
+	# environment variables need to be loaded first
+	set_envars
+	set_aliases
+	set_autocomplete
+}
+
+run

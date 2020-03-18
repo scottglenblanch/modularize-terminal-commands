@@ -1,0 +1,13 @@
+#!/bin/bash
+#=============================================
+# ${MY_ROOT_BIN_DIR} is required global
+#=============================================
+# check for valid input
+GIT_BRANCH_NAME="${1}"
+if [ -z "${GIT_BRANCH_NAME}" ]
+then
+	echo "Needs a branch name as input"
+	exit 1
+fi
+
+[ "${GIT_BRANCH_NAME} ] && git branch -D "${GIT_BRANCH_NAME}"

@@ -1,0 +1,3 @@
+#!/bin/bash
+complete -W "$(ls ${MY_ROOT_BIN_DIR})" edit.command
+

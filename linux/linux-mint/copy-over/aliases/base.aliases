@@ -1,0 +1,15 @@
+#!/bin/bash
+alias my.aliases.dir="cd ${MY_ROOT_ALIASES_DIR}"
+alias my.autocomplete.dir="cd ${MY_ROOT_AUTOCOMPLETE_DIR}"
+alias my.bash.dir="cd ${MY_ROOT_BASH_DIR}"
+alias my.bin.dir="cd ${MY_ROOT_BIN_DIR}"
+alias my.envvars.dir="cd ${MY_ROOT_ENVVARS_DIR}"
+alias my.templates.dir="cd ${MY_ROOT_TEMPLATES_DIR}"
+
+alias desktop.dir="cd ${HOME}/Desktop"
+alias downloads.dir="cd ${HOME}/Downloads"
+alias home.dir="cd ${HOME}"
+alias library.dir="cd ${HOME}/Library"
+alias reload.shell='source ~/.bash_profile'
+
+alias base.aliases='editor ${MY_ROOT_ALIASES_DIR}/base.aliases'

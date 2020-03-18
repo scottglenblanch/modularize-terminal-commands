@@ -1,0 +1,14 @@
+#!/bin/bash
+ITEM="${1}"
+# check if has name for input
+if [ -z "${ITEM}" ]
+then
+  echo "missing command name in input"
+  exit 1
+fi
+
+[ ! -f ~/.Trash ] && mkdir -p ~/.Trash
+
+
+mv  "${HOME}/.Trash/${ITEM}" .
+
