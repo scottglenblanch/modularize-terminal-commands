@@ -1,0 +1,27 @@
+# ========================
+# Required GLOBAL VARIABLE
+#
+# $env:MY_ROOT_POWERSHELL_SCRIPTS_DIR
+#
+# ========================
+function SET_BASE_ENVIRONMENT_VARIABLES {
+    $env:MY_ROOT_ALIASES_DIR="$env:MY_ROOT_POWERSHELL_SCRIPTS_DIR\aliases"
+    $env:MY_ROOT_AUTOCOMPLETE_DIR="$env:MY_ROOT_POWERSHELL_SCRIPTS_DIR\autocomplete"
+    $env:MY_ROOT_BIN_DIR="$env:MY_ROOT_POWERSHELL_SCRIPTS_DIR\bin"
+    $env:MY_ROOT_ENVVARS_DIR="$env:MY_ROOT_POWERSHELL_SCRIPTS_DIR\envvars"
+    $env:MY_ROOT_TEMPLATES_DIR="$env:MY_ROOT_POWERSHELL_SCRIPTS_DIR\templates"
+}
+
+function HANDLE_INVALID {
+    Write-Host "MY_ROOT_POWERSHELL_SCRIPTS_DIR environment variable needs to be set"
+}
+
+
+If($env:MY_ROOT_POWERSHELL_SCRIPTS_DIR){
+    . SET_BASE_ENVIRONMENT_VARIABLES
+}
+Else {
+    . HANDLE_INVALID
+}
+
+

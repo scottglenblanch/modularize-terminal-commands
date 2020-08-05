@@ -1,6 +1,6 @@
-# Project Based Bashing
-Aides in creating and encapsulating those bash scripts per project. Bash scripts will be located in both the project directory
-as well as in global bash directory, aka '$MY_ROOT_BASH_DIR'.
+# Modularize Terminal Commands
+Aides in creating and encapsulating scripts per project. Scripts will be located in both the project directory
+as well as in global bash directory, aka environment variable `MY_ROOT_BASH_DIR`.
 
 ## Overview
 Scripts generated will be nested within the project folder as well
@@ -10,35 +10,18 @@ as in the '$MY_ROOT_BASH_DIR' bash scripts folder. The location of
 ## Support
 
 ### Script Interpreters
-Current support is for bash (Bourne-again shell).
-
-### Operating Systems
-Current version supports MacOsX. Future versions will support popular Linux distributions and Windows.
+Current support
+- BASH (Bourne Again Shell)
+    - OsX and Linux
+- Powershell
+    - Windows 10
 
 ## Installation
 
-#### OS X
+[MacOSX Readme](./osx/README.md)
 
-```sh
-git clone git@github.com:scottglenblanch/project-based-bashing.git
-chmod -R +x ./project-based-bashing/osx  
-./project-based-bashing/osx/initialize
-```
+[Windows Readme](./windows/README.md)
 
-The initialize script will ask where you want the root bash directory to be.
-
-Input this using the absolute path. (As of right now it won't work with the ~
-for $HOME path. Fixes on this underway.)
-
-The absolute path will be saved as an environment variable as $MY_ROOT_BASH_DIR'
-in ~/.bashrc.
-
-After running the command mentioned above run
-```sh
-source ~/.bashrc
-```
-
-Also verify that your terminal runs ~/.bashrc on startup. The file ~/.bashrc needs to run in order to hook everything up. 
 
 #### Linux:
 
@@ -65,6 +48,8 @@ Commands
 * end.day
 
 ## Release History
+* 0.0.3
+    * Added Powershell scripts for Windows
 * 0.0.2
     * Work in progress
 
@@ -85,4 +70,8 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 5. Create a new Pull Request
 
 ## Special Thanks
-Special Thanks to [@wcspcbmt](https://github.com/wcspcbmt) for teaching me bash. My eyes have been opened to the power of the terminal.
+Special Thanks to [@wcspcbmt](https://github.com/wcspcbmt) for teaching me bash. 
+
+Special Thanks to [@Nr1cha](https://github.com/Nr1cha) for getting me involved with Powershell.
+
+My eyes have been opened to the power of the terminal.
