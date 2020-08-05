@@ -1,24 +1,13 @@
 # Windows Setup
 
-### Create Profile
-https://blog.cloudbusiness.com/hub/how-to-set-up-a-powershell-profile
+## Run Initialize Powershell Script
 
-
-### Get path to $profile
-In Powershell run
+1) Open Powershell Terminal
+2) Run initialize.ps1 in Powershell Terminal
 ```
-$profile
+<project root>/windows/initialize.ps1
 ```
+3) Exit current terminal
+4) Open new terminal to make sure everything worked. 
 
-This will output a path. This path is the path to open
-for the next step. 
 
-### Edit $profile file
-Add the following to the profile file. 
-```
-$env:MY_ROOT_POWERSHELL_SCRIPTS_DIR="C:\User..." # path to your root directory for the powershell scripts 
-. $env:MY_ROOT_POWERSHELL_SCRIPTS_DIR\bin\setup.shell.ps1 
-```
-
-Now anytime you open up Powershell the project the commands
-and aliases will be readily available
