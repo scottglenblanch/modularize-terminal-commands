@@ -1,5 +1,5 @@
 function ADD_ROOT_BIN_DIR_TO_PATH_VARIABLE {
-  $env:Path += ";$env:HOMEPATH\code\modularize-terminal-commands\windows\copy-over\bin"  
+  $env:Path += ";$env:MY_ROOT_POWERSHELL_SCRIPTS_DIR\bin"  
 }
 
 function RUN_POWERSHELL_SCRIPTS_IN_DIRECTORY {
@@ -15,11 +15,11 @@ function RUN_POWERSHELL_SCRIPTS_IN_DIRECTORY {
 
 function SETUP_ALIASES {
 
-  . RUN_POWERSHELL_SCRIPTS_IN_DIRECTORY "C:\Users\scott\code\modularize-terminal-commands\windows\copy-over\aliases" 
+  . RUN_POWERSHELL_SCRIPTS_IN_DIRECTORY "$env:MY_ROOT_POWERSHELL_SCRIPTS_DIR\aliases" 
 }
 
 function SETUP_ENVVARS() {
-  . RUN_POWERSHELL_SCRIPTS_IN_DIRECTORY "C:\Users\scott\code\modularize-terminal-commands\windows\copy-over\envvars" 
+  . RUN_POWERSHELL_SCRIPTS_IN_DIRECTORY "$env:MY_ROOT_POWERSHELL_SCRIPTS_DIR\envvars" 
 }
 
 . SETUP_ALIASES
