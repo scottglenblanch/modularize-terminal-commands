@@ -1,3 +1,9 @@
+# =========================
+  Dependency Environment Variables
+  - $env:MY_ROOT_POWERSHELL_SCRIPTS_DIR
+# =========================
+
+
 function ADD_ROOT_BIN_DIR_TO_PATH_VARIABLE {
   $env:Path += ";$env:MY_ROOT_POWERSHELL_SCRIPTS_DIR\bin"  
 }
