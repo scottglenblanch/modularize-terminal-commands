@@ -2,8 +2,8 @@
 
 ```sh
 git clone git@github.com:scottglenblanch/project-based-bashing.git
-chmod -R +x ./project-based-bashing/osx  
-./project-based-bashing/osx/initialize
+chmod -R +x ./modularize-terminal-commands/osx  
+./modularize-terminal-commands/osx/initialize
 ```
 
 The initialize script will ask where you want the root bash directory to be.
