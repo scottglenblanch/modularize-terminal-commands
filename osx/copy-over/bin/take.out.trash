@@ -1,3 +1,27 @@
 #!/bin/bash
-rm -rf ${HOME}/.Trash/*
 
+has_items_in_trash() {
+    if  [ $(ls -l ~/.Trash/ | wc -l) = 0 ];
+    then
+        echo "false"
+    else
+        echo "true"
+    fi
+}
+
+delete_items_in_trash_directory() {
+    osascript -e '
+        tell application "Finder"
+        empty the trash
+        end tell
+    '
+}
+
+run() {
+    if [ "$(has_items_in_trash)" = "true" ];
+    then
+        delete_items_in_trash_directory
+    fi
+}
+
+run
