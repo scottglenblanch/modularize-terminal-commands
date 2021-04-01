@@ -1,14 +1,5 @@
 #!/bin/bash
 
-has_items_in_trash() {
-    if  [ $(ls -l ~/.Trash/ | wc -l) = 0 ];
-    then
-        echo "false"
-    else
-        echo "true"
-    fi
-}
-
 delete_items_in_trash_directory() {
     osascript -e '
         tell application "Finder"
@@ -17,10 +8,39 @@ delete_items_in_trash_directory() {
     '
 }
 
+handle_has_items_in_trash() {
+    delete_items_in_trash_directory
+    out_message_items_in_trash
+}
+
+handle_no_items_in_trash() {
+    output_no_items_in_trash
+}
+
+has_items_in_trash() {
+    if [ -n "$(ls -A ~/.Trash)" ]; 
+    then
+        echo "true"
+    else
+        echo "false"
+    fi
+}
+
+out_message_items_in_trash() {
+    echo.color.green 'Emptied Trash'
+}
+
+output_no_items_in_trash() {
+    echo.color.blue 'Trash is Already Empty :)'
+}
+
+
 run() {
     if [ "$(has_items_in_trash)" = "true" ];
     then
-        delete_items_in_trash_directory
+        handle_has_items_in_trash
+    else
+        handle_no_items_in_trash
     fi
 }
 
